@@ -3,1035 +3,983 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Asabe Conglomerate - Solar Products, Gadgets, Interior & Exterior Consultations, Container Sales. Nationwide delivery across Nigeria.">
-  <meta name="keywords" content="solar panels Nigeria, gadgets Nigeria, container sales, interior design Nigeria, Asabe Conglomerate">
-  <meta property="og:title" content="Asabe Conglomerate | Solar, Gadgets, Containers & More">
-  <meta property="og:description" content="Quality solar products, gadgets, accessories, interior consultations and container sales. Order on WhatsApp, delivered nationwide.">
-  <meta property="og:type" content="website">
-  <title>Asabe Conglomerate | Solar &bull; Gadgets &bull; Containers &bull; Design</title>
+  <meta name="description" content="Asabe Conglomerate - Solar Energy, Interior & Exterior Design, Gadgets, Container Sales. Nationwide delivery across Nigeria.">
+  <title>Asabe Conglomerate</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Mulish:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --black: #0a0a0a;
-      --dark: #111410;
-      --green: #2d5a27;
-      --green-mid: #3d7a35;
-      --green-light: #5aaa4f;
-      --gold: #c9a84c;
-      --gold-light: #e8c96a;
-      --cream: #f7f3ec;
       --white: #ffffff;
-      --muted: #7a7a6e;
-      --line: rgba(255,255,255,0.08);
-      --line-light: rgba(0,0,0,0.08);
-      --syne: "Syne", sans-serif;
-      --mulish: "Mulish", sans-serif;
-      --wa: +2347063853802;
+      --black: #0a0a0a;
+      --grey-100: #f5f5f5;
+      --grey-200: #e8e8e8;
+      --grey-400: #999999;
+      --grey-600: #555555;
+      --accent: #0a0a0a;
+      --jost: 'Jost', sans-serif;
+      --cormorant: 'Cormorant Garamond', serif;
     }
-    html { scroll-behavior: smooth; }
-    body { background: var(--cream); color: var(--dark); font-family: var(--mulish); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { background: var(--white); color: var(--black); font-family: var(--jost); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
 
-    /* SCROLLBAR */
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: var(--dark); }
-    ::-webkit-scrollbar-thumb { background: var(--green-light); }
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.3s; } .d4 { transition-delay: 0.4s; }
 
     /* NAV */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+      height: 60px; background: var(--white);
+      border-bottom: 1px solid var(--grey-200);
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 4rem; height: 72px;
-      background: rgba(10,10,10,0.95);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--line);
-      transition: all 0.3s;
+      padding: 0 2.5rem;
     }
     .nav-logo {
-      font-family: var(--syne); font-size: 1.15rem; font-weight: 800;
-      color: var(--white); text-decoration: none; letter-spacing: 0.04em;
-      display: flex; align-items: center; gap: 0.5rem;
+      display: flex; align-items: center; gap: 0.75rem;
     }
-    .nav-logo span { color: var(--gold); }
-    .nav-links { display: flex; align-items: center; gap: 2.5rem; }
+    .nav-logo-img { height: 36px; width: auto; object-fit: contain; }
+    .nav-logo-text {
+      font-family: var(--jost); font-size: 0.7rem; font-weight: 400;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--black);
+    }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
     .nav-links a {
-      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em;
-      text-transform: uppercase; color: rgba(255,255,255,0.6);
-      text-decoration: none; transition: color 0.2s;
+      font-size: 0.72rem; font-weight: 400; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--grey-600);
+      transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover { color: var(--black); }
     .nav-cta {
-      background: var(--green-light); color: var(--white) !important;
-      padding: 0.55rem 1.25rem; font-weight: 600 !important;
-      border-radius: 2px; transition: background 0.2s !important;
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; background: var(--black); color: var(--white) !important;
+      padding: 0.6rem 1.4rem; transition: background 0.2s !important;
     }
-    .nav-cta:hover { background: var(--gold) !important; color: var(--black) !important; }
-    .nav-toggle {
-      display: none; flex-direction: column; gap: 5px;
-      cursor: pointer; background: none; border: none; padding: 4px;
-    }
-    .nav-toggle span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: all 0.3s; }
+    .nav-cta:hover { background: #333 !important; }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-toggle span { display: block; width: 22px; height: 1px; background: var(--black); transition: all 0.3s; }
 
     /* HERO */
     .hero {
-      min-height: 100vh; display: flex; align-items: center;
-      padding: 72px 4rem 0; position: relative; overflow: hidden;
-      background: var(--dark);
+      margin-top: 60px; display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100vh - 60px);
     }
-    .hero-bg {
-      position: absolute; inset: 0; z-index: 0;
-      background:
-        radial-gradient(ellipse 70% 60% at 80% 50%, rgba(45,90,39,0.35) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 40% at 15% 80%, rgba(201,168,76,0.12) 0%, transparent 60%);
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 5rem 4rem 5rem 2.5rem;
+      border-right: 1px solid var(--grey-200);
     }
-    .hero-grid-lines {
-      position: absolute; inset: 0; z-index: 0;
-      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
+    .hero-label {
+      font-size: 0.68rem; font-weight: 400; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--grey-400); margin-bottom: 2rem;
     }
-    .hero-content { position: relative; z-index: 1; max-width: 760px; }
-    .hero-tag {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(90,170,79,0.15); border: 1px solid rgba(90,170,79,0.3);
-      color: var(--green-light); padding: 0.4rem 1rem;
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em;
-      text-transform: uppercase; margin-bottom: 2rem;
-      border-radius: 100px;
+    .hero-title {
+      font-family: var(--cormorant); font-size: clamp(3rem, 5.5vw, 5.5rem);
+      font-weight: 300; line-height: 1.05; margin-bottom: 2rem; letter-spacing: -0.01em;
     }
-    .hero-tag::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--green-light); animation: pulse 2s infinite; }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
-    .hero h1 {
-      font-family: var(--syne); font-size: clamp(2.8rem, 6vw, 5.5rem);
-      font-weight: 800; line-height: 1.0; color: var(--white);
-      margin-bottom: 1.5rem; letter-spacing: -0.02em;
+    .hero-title em { font-style: italic; }
+    .hero-desc {
+      font-size: 0.88rem; font-weight: 300; color: var(--grey-600);
+      max-width: 400px; line-height: 1.9; margin-bottom: 3rem;
     }
-    .hero h1 em { font-style: normal; color: var(--gold); }
-    .hero-sub {
-      font-size: 1.05rem; color: rgba(255,255,255,0.55);
-      max-width: 520px; margin-bottom: 3rem; line-height: 1.8;
-    }
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 4rem; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.85rem 2rem; font-family: var(--mulish);
-      font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em;
-      text-transform: uppercase; text-decoration: none;
-      border-radius: 2px; transition: all 0.25s; cursor: pointer; border: none;
+      font-family: var(--jost); font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 0.85rem 2rem; border: 1px solid; transition: all 0.25s; cursor: pointer;
     }
-    .btn-primary { background: var(--green-light); color: var(--white); }
-    .btn-primary:hover { background: var(--gold); color: var(--black); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(90,170,79,0.3); }
-    .btn-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.25); }
-    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-    .btn-wa { background: #25d366; color: var(--white); }
-    .btn-wa:hover { background: #1da851; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,0.35); }
-    .btn-gold { background: var(--gold); color: var(--black); }
-    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
-    .btn-dark { background: var(--dark); color: var(--white); border: 1.5px solid rgba(255,255,255,0.1); }
-    .btn-dark:hover { border-color: var(--green-light); color: var(--green-light); }
-
+    .btn-black { background: var(--black); color: var(--white); border-color: var(--black); }
+    .btn-black:hover { background: var(--white); color: var(--black); }
+    .btn-outline { background: transparent; color: var(--black); border-color: var(--black); }
+    .btn-outline:hover { background: var(--black); color: var(--white); }
+    .btn-wa { background: #25d366; color: var(--white); border-color: #25d366; }
+    .btn-wa:hover { background: #1da851; border-color: #1da851; }
+    .hero-right { position: relative; overflow: hidden; background: var(--grey-100); }
+    .hero-right-grid {
+      display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;
+      height: 100%; gap: 1px; background: var(--grey-200);
+    }
+    .hero-img-slot {
+      background: var(--grey-100); overflow: hidden; position: relative;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-img-slot img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .hero-img-slot:hover img { transform: scale(1.04); }
+    .hero-img-placeholder {
+      width: 100%; height: 100%; min-height: 200px;
+      background: var(--grey-100); display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 0.5rem;
+    }
+    .hero-img-placeholder span { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--grey-400); }
     .hero-stats {
-      display: flex; gap: 3rem;
-      padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex; gap: 0; border-top: 1px solid var(--grey-200);
     }
-    .stat-item { display: flex; flex-direction: column; }
-    .stat-num { font-family: var(--syne); font-size: 1.8rem; font-weight: 800; color: var(--gold); line-height: 1; }
-    .stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.4); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.2rem; }
-    .hero-image-col {
-      position: absolute; right: 0; top: 72px; bottom: 0;
-      width: 42%; display: flex; align-items: center; justify-content: center;
-      overflow: hidden;
-    }
-    .hero-image-col img {
-      width: 100%; height: 100%; object-fit: cover; opacity: 0.35;
-      filter: grayscale(30%);
-    }
-    .hero-image-col::after {
-      content: ""; position: absolute; inset: 0;
-      background: linear-gradient(to right, var(--dark) 0%, transparent 60%);
-    }
+    .stat { flex: 1; padding: 1.5rem 2.5rem; border-right: 1px solid var(--grey-200); }
+    .stat:last-child { border-right: none; }
+    .stat-num { font-family: var(--cormorant); font-size: 2rem; font-weight: 300; color: var(--black); line-height: 1; }
+    .stat-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--grey-400); margin-top: 0.3rem; }
 
-    /* MARQUEE */
-    .marquee-wrap {
-      background: var(--green); padding: 1rem 0; overflow: hidden;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+    /* TICKER */
+    .ticker { border-top: 1px solid var(--grey-200); border-bottom: 1px solid var(--grey-200); overflow: hidden; padding: 0.85rem 0; }
+    .ticker-track { display: flex; width: max-content; animation: tick 30s linear infinite; }
+    @keyframes tick { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .ticker-item {
+      display: flex; align-items: center; gap: 1rem; padding: 0 2.5rem; white-space: nowrap;
+      font-size: 0.68rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey-600);
     }
-    .marquee-track {
-      display: flex; gap: 3rem; width: max-content;
-      animation: marquee 25s linear infinite;
-    }
-    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-    .marquee-item {
-      display: flex; align-items: center; gap: 0.75rem; white-space: nowrap;
-      font-family: var(--syne); font-size: 0.8rem; font-weight: 700;
-      letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.7);
-    }
-    .marquee-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+    .ticker-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--grey-400); flex-shrink: 0; }
 
-    /* SECTIONS SHARED */
-    .section { padding: 6rem 4rem; }
-    .section-dark { background: var(--dark); color: var(--white); }
-    .section-green { background: var(--green); color: var(--white); }
-    .section-cream { background: var(--cream); }
-    .section-black { background: var(--black); color: var(--white); }
+    /* SECTION SHARED */
+    .section { padding: 6rem 2.5rem; }
+    .section-sm { padding: 4rem 2.5rem; }
     .section-label {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--gold);
-      margin-bottom: 1rem;
+      font-size: 0.65rem; font-weight: 400; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--grey-400); margin-bottom: 0.75rem;
     }
-    .section-label::before { content: ""; display: block; width: 1.5rem; height: 2px; background: var(--gold); }
     .section-title {
-      font-family: var(--syne); font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      font-weight: 800; line-height: 1.1; margin-bottom: 1rem;
-      letter-spacing: -0.01em;
+      font-family: var(--cormorant); font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 300; line-height: 1.1; margin-bottom: 1rem;
     }
-    .section-sub { font-size: 0.95rem; color: var(--muted); max-width: 540px; line-height: 1.8; margin-bottom: 3rem; }
-    .section-dark .section-sub, .section-black .section-sub, .section-green .section-sub { color: rgba(255,255,255,0.5); }
-    .section-header { margin-bottom: 3rem; }
+    .section-title em { font-style: italic; }
+    .section-sub { font-size: 0.88rem; font-weight: 300; color: var(--grey-600); max-width: 520px; line-height: 1.9; margin-bottom: 3rem; }
+    .section-header { margin-bottom: 3.5rem; }
+    .divider { height: 1px; background: var(--grey-200); margin: 0 2.5rem; }
 
-    /* REVEAL */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
+    /* CATEGORIES — ASOS style full-width image cards */
+    .categories { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--grey-200); }
+    .cat-card { background: var(--white); position: relative; overflow: hidden; cursor: pointer; text-decoration: none; display: block; }
+    .cat-img { aspect-ratio: 3/4; background: var(--grey-100); overflow: hidden; position: relative; }
+    .cat-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .cat-card:hover .cat-img img { transform: scale(1.04); }
+    .cat-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: var(--grey-100); }
+    .cat-img-placeholder span { font-size: 2.5rem; }
+    .cat-info { padding: 1.25rem 1rem; }
+    .cat-name { font-family: var(--jost); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--black); margin-bottom: 0.3rem; }
+    .cat-desc { font-size: 0.75rem; font-weight: 300; color: var(--grey-600); line-height: 1.6; }
+    .cat-arrow { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); margin-top: 0.75rem; }
 
-    /* CATEGORIES */
-    .categories-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5px;
-      background: var(--line-light); border: 1.5px solid var(--line-light);
-    }
-    .cat-card {
-      background: var(--cream); padding: 2.5rem 2rem;
-      transition: background 0.3s, transform 0.3s;
-      cursor: pointer; text-decoration: none; color: inherit;
-      display: flex; flex-direction: column; gap: 1rem;
-    }
-    .cat-card:hover { background: var(--dark); }
-    .cat-icon {
-      width: 52px; height: 52px; border-radius: 4px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; background: rgba(45,90,39,0.1);
-      transition: background 0.3s;
-    }
-    .cat-card:hover .cat-icon { background: var(--green); }
-    .cat-title {
-      font-family: var(--syne); font-size: 1.1rem; font-weight: 700;
-      color: var(--dark); transition: color 0.3s;
-    }
-    .cat-card:hover .cat-title { color: var(--white); }
-    .cat-desc { font-size: 0.85rem; color: var(--muted); transition: color 0.3s; line-height: 1.6; }
-    .cat-card:hover .cat-desc { color: rgba(255,255,255,0.5); }
-    .cat-arrow {
-      margin-top: auto; font-size: 1.2rem; color: var(--green-light);
-      transition: transform 0.3s, color 0.3s;
-    }
-    .cat-card:hover .cat-arrow { transform: translate(4px, -4px); color: var(--gold); }
+    /* EDITORIAL — two col, image + text */
+    .editorial { display: grid; grid-template-columns: 1fr 1fr; gap: 0; min-height: 600px; }
+    .editorial-img { background: var(--grey-100); overflow: hidden; position: relative; }
+    .editorial-img img { width: 100%; height: 100%; object-fit: cover; }
+    .editorial-img-placeholder { width: 100%; height: 100%; min-height: 500px; display: flex; align-items: center; justify-content: center; background: var(--grey-100); font-size: 3rem; }
+    .editorial-text { display: flex; flex-direction: column; justify-content: center; padding: 5rem 4rem; border-left: 1px solid var(--grey-200); }
+    .editorial-text .section-title { font-size: clamp(2.2rem, 3.5vw, 3.5rem); margin-bottom: 1.5rem; }
+    .editorial-text p { font-size: 0.88rem; font-weight: 300; color: var(--grey-600); line-height: 2; margin-bottom: 1rem; }
+    .editorial-text .actions { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 2rem; align-items: flex-start; }
+    .editorial-reverse { direction: rtl; }
+    .editorial-reverse > * { direction: ltr; }
+    .editorial-reverse .editorial-text { border-left: none; border-right: 1px solid var(--grey-200); }
 
-    /* SIGNATURE SECTION */
-    .signature-section { background: var(--black); padding: 6rem 4rem; }
-    .signature-badge {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.3);
-      color: var(--gold); padding: 0.4rem 1rem;
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em;
-      text-transform: uppercase; border-radius: 100px; margin-bottom: 2rem;
-    }
-    .signature-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
-    }
-    .sig-card {
-      background: rgba(255,255,255,0.03); border: 1px solid rgba(201,168,76,0.15);
-      padding: 2.5rem; border-radius: 4px; position: relative; overflow: hidden;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-    .sig-card:hover { border-color: var(--gold); transform: translateY(-4px); }
-    .sig-card::before {
-      content: ""; position: absolute; top: 0; left: 0;
-      width: 100%; height: 3px; background: linear-gradient(to right, var(--gold), var(--green-light));
-    }
-    .sig-img {
-      width: 100%; aspect-ratio: 4/3; object-fit: cover;
-      background: rgba(255,255,255,0.05); border-radius: 2px;
-      margin-bottom: 1.5rem; display: flex; align-items: center;
-      justify-content: center; font-size: 3rem;
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-    .sig-branded {
-      display: inline-flex; align-items: center; gap: 0.3rem;
-      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em;
-      text-transform: uppercase; color: var(--gold);
-      background: rgba(201,168,76,0.1); padding: 0.25rem 0.6rem;
-      border-radius: 100px; margin-bottom: 0.75rem;
-    }
-    .sig-name {
-      font-family: var(--syne); font-size: 1.2rem; font-weight: 700;
-      color: var(--white); margin-bottom: 0.5rem;
-    }
-    .sig-desc { font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.6; margin-bottom: 1.5rem; }
-    .sig-price {
-      font-family: var(--syne); font-size: 1.4rem; font-weight: 800;
-      color: var(--gold); margin-bottom: 1.5rem;
-    }
-    .sig-price span { font-size: 0.8rem; font-weight: 400; color: rgba(255,255,255,0.3); text-decoration: line-through; margin-left: 0.5rem; }
+    /* SIGNATURE */
+    .sig-section { background: var(--black); color: var(--white); padding: 6rem 2.5rem; }
+    .sig-section .section-label { color: rgba(255,255,255,0.35); }
+    .sig-section .section-title { color: var(--white); }
+    .sig-section .section-sub { color: rgba(255,255,255,0.5); }
+    .sig-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.08); margin-top: 3rem; }
+    .sig-card { background: var(--black); padding: 3rem 2.5rem; border-top: 1px solid rgba(255,255,255,0.08); transition: background 0.3s; }
+    .sig-card:hover { background: #111; }
+    .sig-tag { display: inline-block; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); border: 1px solid rgba(255,255,255,0.15); padding: 0.2rem 0.6rem; margin-bottom: 1.5rem; }
+    .sig-img-slot { aspect-ratio: 1; background: #111; margin-bottom: 2rem; display: flex; align-items: center; justify-content: center; }
+    .sig-img-slot span { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.2); }
+    .sig-name { font-family: var(--cormorant); font-size: 1.6rem; font-weight: 300; color: var(--white); margin-bottom: 0.75rem; }
+    .sig-desc { font-size: 0.82rem; font-weight: 300; color: rgba(255,255,255,0.45); line-height: 1.8; margin-bottom: 1.5rem; }
+    .sig-price { font-family: var(--jost); font-size: 1rem; font-weight: 300; color: var(--white); margin-bottom: 2rem; }
+    .btn-white { background: var(--white); color: var(--black); border-color: var(--white); }
+    .btn-white:hover { background: transparent; color: var(--white); }
 
-    /* PRODUCTS GRID */
-    .products-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;
-    }
-    .product-card {
-      background: var(--white); border: 1.5px solid rgba(0,0,0,0.07);
-      border-radius: 4px; overflow: hidden;
-      transition: box-shadow 0.3s, transform 0.3s;
-    }
-    .product-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.1); transform: translateY(-4px); }
-    .product-img {
-      width: 100%; aspect-ratio: 4/3;
-      background: linear-gradient(135deg, #e8f0e8 0%, #d5e8d0 100%);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 3rem; position: relative; overflow: hidden;
-    }
-    .product-badge {
-      position: absolute; top: 0.75rem; left: 0.75rem;
-      background: var(--green-light); color: var(--white);
-      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 100px;
-    }
-    .product-body { padding: 1.5rem; }
-    .product-category {
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.15em;
-      text-transform: uppercase; color: var(--green-mid); margin-bottom: 0.4rem;
-    }
-    .product-name {
-      font-family: var(--syne); font-size: 1.05rem; font-weight: 700;
-      color: var(--dark); margin-bottom: 0.5rem; line-height: 1.3;
-    }
-    .product-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; margin-bottom: 1rem; }
-    .product-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
-    .product-price { font-family: var(--syne); font-size: 1.2rem; font-weight: 800; color: var(--dark); }
-    .product-price small { font-family: var(--mulish); font-size: 0.75rem; font-weight: 400; color: var(--muted); display: block; }
-    .order-btn {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      background: #25d366; color: var(--white);
-      padding: 0.55rem 1rem; border-radius: 2px;
-      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em;
-      text-decoration: none; transition: all 0.2s; white-space: nowrap;
-    }
-    .order-btn:hover { background: #1da851; transform: translateY(-1px); }
+    /* SOLAR CALCULATOR */
+    .calc-section { padding: 6rem 2.5rem; background: var(--grey-100); }
+    .calc-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; }
+    .calc-appliances { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 2rem; }
+    .appliance-item { background: var(--white); border: 1px solid var(--grey-200); padding: 1rem; cursor: pointer; transition: all 0.2s; user-select: none; }
+    .appliance-item.selected { border-color: var(--black); background: var(--black); }
+    .appliance-item.selected .app-name, .appliance-item.selected .app-qty { color: var(--white); }
+    .appliance-item.selected .app-watts { color: rgba(255,255,255,0.5); }
+    .app-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+    .app-name { font-size: 0.78rem; font-weight: 500; color: var(--black); letter-spacing: 0.05em; }
+    .app-watts { font-size: 0.68rem; color: var(--grey-400); }
+    .app-qty { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem; }
+    .app-qty button { width: 22px; height: 22px; border: 1px solid var(--grey-200); background: var(--white); cursor: pointer; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
+    .appliance-item.selected .app-qty button { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: var(--white); }
+    .app-qty span { font-size: 0.82rem; font-weight: 500; min-width: 20px; text-align: center; }
+    .calc-hours { margin-bottom: 2rem; }
+    .calc-hours label { display: block; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-600); margin-bottom: 0.75rem; }
+    .hours-input { width: 100%; -webkit-appearance: none; height: 2px; background: var(--grey-200); outline: none; cursor: pointer; }
+    .hours-input::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%; background: var(--black); cursor: pointer; }
+    .hours-val { font-size: 0.88rem; font-weight: 500; margin-top: 0.5rem; }
+    .calc-result { background: var(--white); border: 1px solid var(--grey-200); padding: 2.5rem; position: sticky; top: 80px; }
+    .calc-result h3 { font-family: var(--cormorant); font-size: 1.4rem; font-weight: 300; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--grey-200); }
+    .result-line { display: flex; justify-content: space-between; align-items: flex-start; padding: 1rem 0; border-bottom: 1px solid var(--grey-100); gap: 1rem; }
+    .result-line:last-of-type { border-bottom: none; }
+    .result-key { font-size: 0.75rem; font-weight: 400; color: var(--grey-600); letter-spacing: 0.05em; }
+    .result-val { font-size: 0.82rem; font-weight: 500; color: var(--black); text-align: right; }
+    .result-price { font-family: var(--cormorant); font-size: 2rem; font-weight: 300; color: var(--black); margin: 1.5rem 0; }
+    .result-note { font-size: 0.72rem; color: var(--grey-400); line-height: 1.7; margin-bottom: 1.5rem; }
 
-    /* TABS */
-    .tabs { display: flex; gap: 0; border-bottom: 2px solid rgba(0,0,0,0.08); margin-bottom: 2.5rem; flex-wrap: wrap; }
-    .tab-btn {
-      padding: 0.75rem 1.5rem; font-family: var(--syne);
-      font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em;
-      background: none; border: none; cursor: pointer;
-      color: var(--muted); border-bottom: 2px solid transparent;
-      margin-bottom: -2px; transition: all 0.2s; text-transform: uppercase;
-    }
-    .tab-btn.active { color: var(--green); border-bottom-color: var(--green); }
-    .tab-panel { display: none; }
-    .tab-panel.active { display: block; }
-
-    /* DELIVERY SECTION */
-    .delivery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-    .delivery-features { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
-    .delivery-item { display: flex; align-items: flex-start; gap: 1rem; }
-    .delivery-icon {
-      width: 44px; height: 44px; border-radius: 4px;
-      background: rgba(45,90,39,0.12); display: flex;
-      align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;
-    }
-    .delivery-item h4 { font-family: var(--syne); font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 0.2rem; }
-    .delivery-item p { font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.6; }
-    .delivery-map {
-      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 4px; padding: 2.5rem; text-align: center;
-    }
-    .delivery-map-icon { font-size: 4rem; margin-bottom: 1rem; }
-    .delivery-map h3 { font-family: var(--syne); font-size: 1.3rem; font-weight: 800; color: var(--white); margin-bottom: 0.5rem; }
-    .delivery-map p { font-size: 0.88rem; color: rgba(255,255,255,0.45); margin-bottom: 1.5rem; }
-    .states-list { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
-    .state-tag {
-      background: rgba(90,170,79,0.1); border: 1px solid rgba(90,170,79,0.2);
-      color: var(--green-light); padding: 0.25rem 0.75rem;
-      font-size: 0.72rem; font-weight: 600; border-radius: 100px;
-    }
-
-    /* CONSULTATION */
-    .consult-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-    .consult-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .consult-card {
-      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
-      padding: 1.5rem; border-radius: 4px; transition: border-color 0.3s;
-    }
-    .consult-card:hover { border-color: var(--gold); }
-    .consult-card-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
-    .consult-card h4 { font-family: var(--syne); font-size: 0.9rem; font-weight: 700; color: var(--white); margin-bottom: 0.4rem; }
-    .consult-card p { font-size: 0.8rem; color: rgba(255,255,255,0.4); line-height: 1.6; }
-    .consult-actions { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
-    .consult-action-btn {
-      display: flex; align-items: center; gap: 1rem;
-      padding: 1.25rem 1.5rem; border-radius: 4px;
-      text-decoration: none; transition: all 0.2s;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-    .consult-action-btn:hover { transform: translateX(6px); }
-    .consult-action-btn.wa { background: rgba(37,211,102,0.1); border-color: rgba(37,211,102,0.3); }
-    .consult-action-btn.ig { background: rgba(225,48,108,0.1); border-color: rgba(225,48,108,0.3); }
-    .consult-action-icon { font-size: 1.5rem; flex-shrink: 0; }
-    .consult-action-text h4 { font-family: var(--syne); font-size: 0.9rem; font-weight: 700; color: var(--white); }
-    .consult-action-text p { font-size: 0.78rem; color: rgba(255,255,255,0.4); }
+    /* DELIVERY */
+    .delivery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .delivery-items { display: flex; flex-direction: column; gap: 0; margin-top: 2rem; }
+    .delivery-item { display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--grey-200); }
+    .delivery-item:first-child { border-top: 1px solid var(--grey-200); }
+    .d-num { font-family: var(--cormorant); font-size: 1.5rem; font-weight: 300; color: var(--grey-200); flex-shrink: 0; line-height: 1; margin-top: 0.1rem; }
+    .d-text h4 { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--black); margin-bottom: 0.35rem; }
+    .d-text p { font-size: 0.82rem; font-weight: 300; color: var(--grey-600); line-height: 1.7; }
+    .delivery-map-box { background: var(--grey-100); padding: 3rem; }
+    .delivery-map-box h3 { font-family: var(--cormorant); font-size: 2rem; font-weight: 300; margin-bottom: 0.75rem; }
+    .delivery-map-box p { font-size: 0.82rem; font-weight: 300; color: var(--grey-600); line-height: 1.8; margin-bottom: 1.5rem; }
+    .states-wrap { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 2rem; }
+    .state-pill { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid var(--grey-200); padding: 0.25rem 0.6rem; color: var(--grey-600); background: var(--white); }
 
     /* PAYMENT */
-    .payment-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
-    .payment-card {
-      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
-      padding: 2rem; border-radius: 4px; text-align: center;
-    }
-    .payment-card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-    .payment-card h4 { font-family: var(--syne); font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
-    .payment-card p { font-size: 0.82rem; color: rgba(255,255,255,0.4); line-height: 1.6; }
+    .payment-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--grey-200); }
+    .payment-card { background: var(--white); padding: 3rem 2rem; }
+    .payment-num { font-family: var(--cormorant); font-size: 3rem; font-weight: 300; color: var(--grey-200); margin-bottom: 1rem; line-height: 1; }
+    .payment-title { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); margin-bottom: 0.75rem; }
+    .payment-desc { font-size: 0.82rem; font-weight: 300; color: var(--grey-600); line-height: 1.8; }
+
+    /* CONSULTATION — for interior page */
+    .consult-bar { background: var(--black); color: var(--white); padding: 4rem 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 3rem; }
+    .consult-bar-text h2 { font-family: var(--cormorant); font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 300; margin-bottom: 0.5rem; }
+    .consult-bar-text p { font-size: 0.85rem; font-weight: 300; color: rgba(255,255,255,0.5); }
+    .consult-bar-actions { display: flex; gap: 1rem; flex-shrink: 0; flex-wrap: wrap; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .about-img { aspect-ratio: 1; background: var(--grey-100); overflow: hidden; }
+    .about-img img { width: 100%; height: 100%; object-fit: cover; }
+    .about-text .section-title { font-size: clamp(2rem, 3vw, 3rem); margin-bottom: 1.5rem; }
+    .about-text p { font-size: 0.88rem; font-weight: 300; color: var(--grey-600); line-height: 2; margin-bottom: 1rem; }
 
     /* CONTACT */
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-    .contact-info { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
-    .contact-item { display: flex; align-items: flex-start; gap: 1rem; }
-    .contact-item-icon {
-      width: 44px; height: 44px; border-radius: 4px; background: rgba(45,90,39,0.1);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem; flex-shrink: 0;
-    }
-    .contact-item-text h4 { font-family: var(--syne); font-size: 0.85rem; font-weight: 700; color: var(--dark); margin-bottom: 0.2rem; }
-    .contact-item-text a, .contact-item-text p { font-size: 0.88rem; color: var(--muted); text-decoration: none; }
-    .contact-item-text a:hover { color: var(--green); }
-    .contact-cta {
-      background: var(--dark); padding: 2.5rem; border-radius: 4px;
-      display: flex; flex-direction: column; gap: 1.5rem;
-    }
-    .contact-cta h3 { font-family: var(--syne); font-size: 1.4rem; font-weight: 800; color: var(--white); }
-    .contact-cta p { font-size: 0.88rem; color: rgba(255,255,255,0.45); line-height: 1.7; }
-    .contact-cta-btns { display: flex; flex-direction: column; gap: 0.75rem; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+    .contact-left { padding: 5rem 4rem 5rem 2.5rem; border-right: 1px solid var(--grey-200); }
+    .contact-right { padding: 5rem 2.5rem 5rem 4rem; background: var(--black); color: var(--white); }
+    .contact-right .section-label { color: rgba(255,255,255,0.3); }
+    .contact-right .section-title { color: var(--white); }
+    .contact-items { display: flex; flex-direction: column; gap: 0; margin-top: 2rem; }
+    .contact-item { display: flex; align-items: flex-start; gap: 1.25rem; padding: 1.25rem 0; border-bottom: 1px solid var(--grey-200); }
+    .contact-item:first-child { border-top: 1px solid var(--grey-200); }
+    .c-icon { width: 36px; height: 36px; border: 1px solid var(--grey-200); display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 500; flex-shrink: 0; color: var(--grey-600); }
+    .c-text h4 { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-400); margin-bottom: 0.2rem; }
+    .c-text a, .c-text p { font-size: 0.85rem; font-weight: 300; color: var(--black); }
+    .c-text a:hover { text-decoration: underline; }
+    .contact-right-inner { display: flex; flex-direction: column; justify-content: center; height: 100%; }
+    .contact-right h2 { font-family: var(--cormorant); font-size: clamp(2rem, 3.5vw, 3.5rem); font-weight: 300; color: var(--white); margin-bottom: 1rem; line-height: 1.05; }
+    .contact-right p { font-size: 0.85rem; font-weight: 300; color: rgba(255,255,255,0.45); line-height: 1.9; margin-bottom: 2.5rem; }
+    .contact-right-btns { display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start; }
 
     /* FOOTER */
-    footer {
-      background: var(--black); color: var(--white);
-      padding: 4rem 4rem 2rem; border-top: 1px solid rgba(255,255,255,0.05);
-    }
+    footer { background: var(--black); color: var(--white); padding: 4rem 2.5rem 2rem; border-top: 1px solid rgba(255,255,255,0.06); }
     .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
-    .footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.4); line-height: 1.8; margin-top: 1rem; max-width: 260px; }
-    .footer-col h4 { font-family: var(--syne); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
-    .footer-col a { display: block; font-size: 0.85rem; color: rgba(255,255,255,0.4); text-decoration: none; margin-bottom: 0.6rem; transition: color 0.2s; }
+    .footer-logo-text { font-family: var(--jost); font-size: 0.7rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); margin-bottom: 1rem; }
+    .footer-brand p { font-size: 0.78rem; font-weight: 300; color: rgba(255,255,255,0.35); line-height: 1.9; margin-top: 0.75rem; max-width: 240px; }
+    .footer-col h4 { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 1.25rem; }
+    .footer-col a { display: block; font-size: 0.78rem; font-weight: 300; color: rgba(255,255,255,0.5); margin-bottom: 0.6rem; transition: color 0.2s; }
     .footer-col a:hover { color: var(--white); }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    .footer-bottom p { font-size: 0.78rem; color: rgba(255,255,255,0.25); }
-    .footer-socials { display: flex; gap: 1rem; }
-    .footer-social { width: 36px; height: 36px; border-radius: 4px; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.85rem; font-weight: 700; transition: all 0.2s; }
-    .footer-social:hover { background: var(--green-light); color: var(--white); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-bottom p { font-size: 0.7rem; font-weight: 300; color: rgba(255,255,255,0.2); letter-spacing: 0.08em; }
+    .footer-socials { display: flex; gap: 1.25rem; }
+    .footer-social { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.3); transition: color 0.2s; }
+    .footer-social:hover { color: var(--white); }
 
     /* WHATSAPP FLOAT */
-    .wa-float {
-      position: fixed; bottom: 2rem; right: 2rem; z-index: 500;
-      width: 56px; height: 56px; border-radius: 50%;
-      background: #25d366; color: var(--white);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; text-decoration: none;
-      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-      transition: transform 0.2s, box-shadow 0.2s;
-      animation: floatPulse 3s ease-in-out infinite;
-    }
-    .wa-float:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37,211,102,0.5); }
-    @keyframes floatPulse { 0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.4)} 50%{box-shadow:0 4px 30px rgba(37,211,102,0.7)} }
+    .wa-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 400; width: 50px; height: 50px; border-radius: 50%; background: #25d366; color: var(--white); display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 16px rgba(37,211,102,0.35); transition: transform 0.2s; font-size: 1.3rem; }
+    .wa-float:hover { transform: scale(1.1); }
+
+    /* PRODUCT GRID */
+    .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--grey-200); }
+    .product-card { background: var(--white); }
+    .product-img { aspect-ratio: 1; background: var(--grey-100); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+    .product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .product-card:hover .product-img img { transform: scale(1.04); }
+    .product-img-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; height: 100%; }
+    .product-img-placeholder .p-icon { font-size: 2.5rem; }
+    .product-img-placeholder span { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-400); }
+    .product-body { padding: 1.25rem; }
+    .product-cat { font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--grey-400); margin-bottom: 0.4rem; }
+    .product-name { font-size: 0.85rem; font-weight: 400; color: var(--black); margin-bottom: 0.4rem; line-height: 1.4; }
+    .product-price { font-size: 0.82rem; font-weight: 300; color: var(--grey-600); margin-bottom: 1rem; }
+    .product-price small { display: block; font-size: 0.65rem; color: var(--grey-400); margin-top: 0.15rem; }
+    .wa-order { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); background: #25d366; padding: 0.5rem 1rem; transition: background 0.2s; }
+    .wa-order:hover { background: #1da851; }
+
+    /* INTERIOR PAGE */
+    .interior-hero { margin-top: 60px; position: relative; height: 70vh; overflow: hidden; background: var(--grey-100); display: flex; align-items: flex-end; }
+    .interior-hero-img { position: absolute; inset: 0; }
+    .interior-hero-img img { width: 100%; height: 100%; object-fit: cover; }
+    .interior-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%); }
+    .interior-hero-text { position: relative; z-index: 1; padding: 4rem 2.5rem; color: var(--white); }
+    .interior-hero-text .section-label { color: rgba(255,255,255,0.5); margin-bottom: 0.75rem; }
+    .interior-hero-text h1 { font-family: var(--cormorant); font-size: clamp(3rem, 6vw, 6rem); font-weight: 300; line-height: 1; }
+    .masonry { columns: 3; column-gap: 1px; background: var(--grey-200); }
+    .masonry-item { break-inside: avoid; background: var(--grey-100); margin-bottom: 1px; overflow: hidden; position: relative; cursor: pointer; }
+    .masonry-item img { width: 100%; display: block; transition: transform 0.6s ease; }
+    .masonry-item:hover img { transform: scale(1.03); }
+    .masonry-placeholder { aspect-ratio: 1; background: var(--grey-100); display: flex; align-items: center; justify-content: center; }
+    .masonry-placeholder.tall { aspect-ratio: 2/3; }
+    .masonry-placeholder.wide { aspect-ratio: 4/3; }
+    .masonry-placeholder span { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-400); }
+    .gallery-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 1rem; background: linear-gradient(to top, rgba(0,0,0,0.5), transparent); color: var(--white); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0; transition: opacity 0.3s; }
+    .masonry-item:hover .gallery-label { opacity: 1; }
+    .filter-bar { display: flex; gap: 0; border-bottom: 1px solid var(--grey-200); padding: 0 2.5rem; overflow-x: auto; }
+    .filter-btn { padding: 1rem 1.5rem; font-size: 0.7rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; background: none; border: none; cursor: pointer; color: var(--grey-400); border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; transition: all 0.2s; }
+    .filter-btn.active { color: var(--black); border-bottom-color: var(--black); }
 
     /* RESPONSIVE */
     @media (max-width: 1024px) {
       .footer-top { grid-template-columns: 1fr 1fr; }
-      .hero-image-col { display: none; }
+      .product-grid { grid-template-columns: repeat(3, 1fr); }
     }
     @media (max-width: 900px) {
-      nav { padding: 0 1.5rem; }
-      .nav-links { display: none; flex-direction: column; gap: 2rem; }
-      .nav-links.open { display: flex; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(10,10,10,0.98); align-items: center; justify-content: center; font-size: 1.1rem; z-index: 199; }
-      .nav-links a { font-size: 1rem; }
-      .nav-toggle { display: flex; z-index: 201; }
-      .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-      .nav-toggle.open span:nth-child(2) { opacity: 0; }
-      .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-      .hero { padding: 72px 1.5rem 4rem; }
-      .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
-      .section { padding: 4rem 1.5rem; }
-      .signature-section { padding: 4rem 1.5rem; }
-      .categories-grid { grid-template-columns: 1fr 1fr; }
-      .signature-grid { grid-template-columns: 1fr; }
-      .delivery-grid, .consult-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .payment-cards { grid-template-columns: 1fr; }
+      nav { padding: 0 1.25rem; }
+      .nav-links { display: none; flex-direction: column; gap: 1.5rem; align-items: center; }
+      .nav-links.open { display: flex; position: fixed; top: 60px; left: 0; right: 0; bottom: 0; background: var(--white); justify-content: center; z-index: 499; }
+      .nav-links a { font-size: 0.9rem; }
+      .nav-toggle { display: flex; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .hero-left { padding: 3rem 1.25rem; }
+      .categories { grid-template-columns: 1fr 1fr; }
+      .editorial { grid-template-columns: 1fr; }
+      .editorial-img { min-height: 350px; }
+      .editorial-text { padding: 3rem 1.25rem; border: none; border-top: 1px solid var(--grey-200); }
+      .editorial-reverse { direction: ltr; }
+      .editorial-reverse .editorial-text { border-right: none; border-top: 1px solid var(--grey-200); }
+      .sig-grid { grid-template-columns: 1fr; }
+      .calc-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .calc-result { position: static; }
+      .delivery-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .payment-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-left { padding: 3rem 1.25rem; border-right: none; border-bottom: 1px solid var(--grey-200); }
+      .contact-right { padding: 3rem 1.25rem; }
       .footer-top { grid-template-columns: 1fr; gap: 2rem; }
-      footer { padding: 3rem 1.5rem 1.5rem; }
-      .footer-bottom { flex-direction: column; text-align: center; }
+      .section { padding: 4rem 1.25rem; }
+      .divider { margin: 0 1.25rem; }
+      .masonry { columns: 2; }
+      .consult-bar { flex-direction: column; align-items: flex-start; }
+      .product-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 600px) {
-      .categories-grid { grid-template-columns: 1fr; }
-      .consult-cards { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 2.4rem; }
-      .hero-actions { flex-direction: column; align-items: flex-start; }
-      .tabs { gap: 0; }
-      .tab-btn { padding: 0.6rem 0.9rem; font-size: 0.72rem; }
+      .categories { grid-template-columns: 1fr 1fr; }
+      .calc-appliances { grid-template-columns: 1fr; }
+      .hero-stats { flex-direction: column; }
+      .stat { border-right: none; border-bottom: 1px solid var(--grey-200); }
+      .masonry { columns: 1; }
+      .product-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- WHATSAPP FLOAT -->
-  <a href="https://wa.me/2347063853802?text=Hello%20Asabe%20Conglomerate%2C%20I%20would%20like%20to%20place%20an%20order." class="wa-float" target="_blank" rel="noopener" title="Chat on WhatsApp">&#128222;</a>
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/2347063853802?text=Hello%20Asabe%20Conglomerate%2C%20I%20would%20like%20to%20enquire." class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">&#128222;</a>
 
-  <!-- NAV -->
-  <nav id="navbar">
-    <a class="nav-logo" href="#">Asabe <span>Conglomerate</span></a>
-    <div class="nav-links" id="navLinks">
-      <a href="#categories">Products</a>
-      <a href="#signature">Signature</a>
-      <a href="#shop">Shop</a>
-      <a href="#delivery">Delivery</a>
-      <a href="#consult">Consult</a>
-      <a href="#contact">Contact</a>
-      <a href="https://wa.me/2347063853802" target="_blank" rel="noopener" class="nav-cta">Order Now</a>
-    </div>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
+<!-- NAV -->
+<nav id="navbar">
+  <a class="nav-logo" href="index.html">
+    <img src="asabe.png" alt="Asabe Conglomerate" class="nav-logo-img">
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="interior.html">Interiors</a>
+    <a href="#solar">Solar</a>
+    <a href="#gadgets">Gadgets</a>
+    <a href="#containers">Containers</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="https://wa.me/2347063853802" target="_blank" rel="noopener" class="nav-cta">Order Now</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-grid-lines"></div>
-    <div class="hero-content">
-      <div class="hero-tag reveal">Nationwide Delivery Available</div>
-      <h1 class="reveal reveal-delay-1">Quality You Can<br>Trust. <em>Built</em> for<br>Nigeria.</h1>
-      <p class="hero-sub reveal reveal-delay-2">Solar products, gadgets &amp; accessories, interior &amp; exterior consultations, and 4ft container sales. Delivered to your door across Nigeria.</p>
-      <div class="hero-actions reveal reveal-delay-3">
-        <a href="#shop" class="btn btn-primary">Browse Products</a>
-        <a href="https://wa.me/2347063853802?text=Hello%20Asabe%20Conglomerate%2C%20I%20want%20to%20place%20an%20order." class="btn btn-wa" target="_blank" rel="noopener">&#128222; Order on WhatsApp</a>
-        <a href="#consult" class="btn btn-outline">Book Consultation</a>
-      </div>
-      <div class="hero-stats reveal reveal-delay-4">
-        <div class="stat-item"><span class="stat-num">4</span><span class="stat-label">Categories</span></div>
-        <div class="stat-item"><span class="stat-num">36</span><span class="stat-label">States Covered</span></div>
-        <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">Trusted Quality</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MARQUEE -->
-  <div class="marquee-wrap">
-    <div class="marquee-track">
-      <div class="marquee-item"><span class="marquee-dot"></span>Solar Products</div>
-      <div class="marquee-item"><span class="marquee-dot"></span>Gadgets &amp; Accessories</div>
-      <div class="marquee-item"><span class="marquee-dot"></span>Interior Consultations</div>
-      <div class="marquee-item"><span class="marquee-dot"></span>Exterior Consultations</div>
-      <div class="marquee-item"><span class="marquee-dot"></span>4ft Container Sales</div>
-      <div class="marquee-item"><span class="marquee-dot"></span>Nationwide Delivery</div>
-      <div class="marquee-item"><span class="marquee-dot"></span>Pay on Delivery Available</div>
-      <div class="marquee-item"><span class="marquee-dot"></span>Bank Transfer Accepted</div>
-      <div class="marquee-item"><span class="marquee-dot"></span>Solar Products</div>
-      <div class="marquee-item"><span class="marquee-dot"></span>Gadgets &amp; Accessories</div>
-      <div class="marquee-item"><span class="marquee-dot"></span>Interior Consultations</div>
-      <div class="marquee-item"><span class="marquee-dot"></span>Exterior Consultations</div>
-      <div class="marquee-item"><span class="marquee-dot"></span>4ft Container Sales</div>
-      <div class="marquee-item"><span class="marquee-dot"></span>Nationwide Delivery</div>
-      <div class="marquee-item"><span class="marquee-dot"></span>Pay on Delivery Available</div>
-      <div class="marquee-item"><span class="marquee-dot"></span>Bank Transfer Accepted</div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-label reveal">Asabe Conglomerate &mdash; Est. 2025</p>
+    <h1 class="hero-title reveal d1">Many Ventures.<br><em>One Standard.</em></h1>
+    <p class="hero-desc reveal d2">Solar energy systems, curated interior and exterior design, gadgets and accessories, and container solutions. Designed for Nigeria. Delivered nationwide.</p>
+    <div class="hero-actions reveal d3">
+      <a href="#categories" class="btn btn-black">Explore</a>
+      <a href="interior.html" class="btn btn-outline">View Interiors</a>
+      <a href="https://wa.me/2347063853802?text=Hello%20Asabe%20Conglomerate%2C%20I%20want%20to%20place%20an%20order." class="btn btn-wa" target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </div>
-
-  <!-- CATEGORIES -->
-  <section class="section section-cream" id="categories">
-    <div class="section-header reveal">
-      <div class="section-label">What We Offer</div>
-      <h2 class="section-title">Four Pillars of<br>Our Business</h2>
-      <p class="section-sub">From renewable energy to smart gadgets, design consultations and container solutions - we have got you covered.</p>
+  <div class="hero-right">
+    <div class="hero-right-grid">
+      <div class="hero-img-slot"><div class="hero-img-placeholder"><span>Living Space</span></div></div>
+      <div class="hero-img-slot"><div class="hero-img-placeholder"><span>Solar Energy</span></div></div>
+      <div class="hero-img-slot"><div class="hero-img-placeholder"><span>Work Space</span></div></div>
+      <div class="hero-img-slot"><div class="hero-img-placeholder"><span>Open Space</span></div></div>
     </div>
-    <div class="categories-grid reveal reveal-delay-1">
-      <a href="#shop" class="cat-card">
-        <div class="cat-icon">&#9728;</div>
-        <div class="cat-title">Solar Products</div>
-        <div class="cat-desc">Panels, inverters, batteries, charge controllers and complete solar kits for homes and businesses.</div>
-        <div class="cat-arrow">&#8599;</div>
-      </a>
-      <a href="#shop" class="cat-card">
-        <div class="cat-icon">&#128241;</div>
-        <div class="cat-title">Gadgets &amp; Accessories</div>
-        <div class="cat-desc">Latest gadgets, phone accessories, smart devices and tech products at competitive prices.</div>
-        <div class="cat-arrow">&#8599;</div>
-      </a>
-      <a href="#consult" class="cat-card">
-        <div class="cat-icon">&#127968;</div>
-        <div class="cat-title">Interior &amp; Exterior</div>
-        <div class="cat-desc">Professional consultation services to transform your indoor and outdoor spaces beautifully.</div>
-        <div class="cat-arrow">&#8599;</div>
-      </a>
-      <a href="#shop" class="cat-card">
-        <div class="cat-icon">&#128667;</div>
-        <div class="cat-title">4ft Container Sales</div>
-        <div class="cat-desc">Durable 4ft containers for storage, offices, pop-up shops and customized commercial use.</div>
-        <div class="cat-arrow">&#8599;</div>
-      </a>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <!-- SIGNATURE COLLECTION -->
-  <section class="signature-section" id="signature">
+<!-- STATS -->
+<div class="hero-stats">
+  <div class="stat reveal"><div class="stat-num">4</div><div class="stat-label">Business Verticals</div></div>
+  <div class="stat reveal d1"><div class="stat-num">36</div><div class="stat-label">States Covered</div></div>
+  <div class="stat reveal d2"><div class="stat-num">100%</div><div class="stat-label">Quality Standard</div></div>
+  <div class="stat reveal d3"><div class="stat-num">2025</div><div class="stat-label">Established</div></div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-item"><span class="ticker-dot"></span>Solar Energy Systems</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Interior Design Consultation</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Exterior Design</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Gadgets &amp; Accessories</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>4ft Container Sales</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Nationwide Delivery</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Pay on Delivery Available</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Bank Transfer Accepted</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Solar Energy Systems</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Interior Design Consultation</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Exterior Design</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Gadgets &amp; Accessories</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>4ft Container Sales</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Nationwide Delivery</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Pay on Delivery Available</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Bank Transfer Accepted</div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="section" id="categories">
+  <div class="section-header reveal">
+    <p class="section-label">What We Do</p>
+    <h2 class="section-title">Four Pillars of<br><em>Asabe Conglomerate</em></h2>
+  </div>
+  <div class="categories">
+    <a href="interior.html" class="cat-card reveal">
+      <div class="cat-img"><div class="cat-img-placeholder"><span>&#127968;</span></div></div>
+      <div class="cat-info">
+        <div class="cat-name">Interior &amp; Exterior</div>
+        <div class="cat-desc">Curated design consultations for residential and commercial spaces.</div>
+        <div class="cat-arrow">Explore &rarr;</div>
+      </div>
+    </a>
+    <a href="#solar" class="cat-card reveal d1">
+      <div class="cat-img"><div class="cat-img-placeholder"><span>&#9728;</span></div></div>
+      <div class="cat-info">
+        <div class="cat-name">Solar Energy</div>
+        <div class="cat-desc">Complete solar systems, panels, inverters and batteries for homes and businesses.</div>
+        <div class="cat-arrow">Explore &rarr;</div>
+      </div>
+    </a>
+    <a href="#gadgets" class="cat-card reveal d2">
+      <div class="cat-img"><div class="cat-img-placeholder"><span>&#128241;</span></div></div>
+      <div class="cat-info">
+        <div class="cat-name">Gadgets &amp; Tech</div>
+        <div class="cat-desc">Latest gadgets, smart accessories and electronics at competitive prices.</div>
+        <div class="cat-arrow">Explore &rarr;</div>
+      </div>
+    </a>
+    <a href="#containers" class="cat-card reveal d3">
+      <div class="cat-img"><div class="cat-img-placeholder"><span>&#128667;</span></div></div>
+      <div class="cat-info">
+        <div class="cat-name">Container Sales</div>
+        <div class="cat-desc">4ft containers for storage, retail, offices and customised commercial use.</div>
+        <div class="cat-arrow">Explore &rarr;</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- INTERIORS EDITORIAL -->
+<section class="section" style="padding-bottom:0; padding-left:0; padding-right:0;">
+  <div style="padding: 0 2.5rem 3rem;" class="reveal">
+    <p class="section-label">Asabe Interiors</p>
+    <h2 class="section-title">Spaces That<br><em>Define Taste</em></h2>
+    <p class="section-sub">We bring globally curated interior and exterior design aesthetics to Nigeria. Spaces that feel considered, unhurried and extraordinary.</p>
+  </div>
+  <div class="editorial reveal">
+    <div class="editorial-img"><div class="editorial-img-placeholder">&#127968;</div></div>
+    <div class="editorial-text">
+      <p class="section-label">Living Spaces</p>
+      <h2 class="section-title">Where Warmth<br><em>Meets Precision</em></h2>
+      <p>Rich wood tones, natural materials, intentional lighting. Living rooms, bedrooms, kitchens and dining spaces designed to feel both beautiful and liveable.</p>
+      <p>We consult on colour, material, layout and furniture selection to create spaces that are distinctly yours.</p>
+      <div class="actions">
+        <a href="interior.html" class="btn btn-black">View Gallery</a>
+        <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20book%20an%20interior%20consultation." class="btn btn-outline" target="_blank" rel="noopener">Book Consultation</a>
+      </div>
+    </div>
+  </div>
+  <div class="editorial editorial-reverse reveal">
+    <div class="editorial-img"><div class="editorial-img-placeholder">&#127963;</div></div>
+    <div class="editorial-text">
+      <p class="section-label">Work Spaces</p>
+      <h2 class="section-title">Offices Built<br><em>for Ambition</em></h2>
+      <p>Executive offices, open plan workspaces and commercial interiors designed to communicate authority, focus and brand identity from the moment you walk in.</p>
+      <p>We design spaces that make your clients feel the standard before a word is spoken.</p>
+      <div class="actions">
+        <a href="interior.html#workspaces" class="btn btn-black">View Gallery</a>
+        <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20discuss%20a%20commercial%20interior%20project." class="btn btn-outline" target="_blank" rel="noopener">Enquire</a>
+      </div>
+    </div>
+  </div>
+  <div class="editorial reveal">
+    <div class="editorial-img"><div class="editorial-img-placeholder">&#127795;</div></div>
+    <div class="editorial-text">
+      <p class="section-label">Open Spaces</p>
+      <h2 class="section-title">Exteriors That<br><em>Speak First</em></h2>
+      <p>Facades, courtyards, terraces, gardens and entrance spaces designed with the same care as the interior. First impressions are permanent.</p>
+      <div class="actions">
+        <a href="interior.html#openspaces" class="btn btn-black">View Gallery</a>
+        <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20discuss%20an%20exterior%20design%20project." class="btn btn-outline" target="_blank" rel="noopener">Enquire</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider" style="margin-top: 0;"></div>
+
+<!-- SIGNATURE -->
+<section class="sig-section">
+  <div class="reveal">
+    <p class="section-label">Signature Collection</p>
+    <h2 class="section-title" style="color:var(--white);">Exclusively <em>Asabe</em></h2>
+    <p class="section-sub">Three products bearing our name. Curated, branded and backed by our direct quality guarantee.</p>
+  </div>
+  <div class="sig-grid">
+    <div class="sig-card reveal">
+      <div class="sig-tag">Asabe Original</div>
+      <div class="sig-img-slot"><span>Add Product Image</span></div>
+      <div class="sig-name">Asabe SolarKit Pro</div>
+      <div class="sig-desc">Our flagship branded solar kit. Designed for Nigerian homes and businesses. Powerful, reliable and complete.</div>
+      <div class="sig-price">&#8358; Add Price</div>
+      <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20order%20the%20Asabe%20SolarKit%20Pro." class="btn btn-white" target="_blank" rel="noopener">Order on WhatsApp</a>
+    </div>
+    <div class="sig-card reveal d1">
+      <div class="sig-tag">Asabe Original</div>
+      <div class="sig-img-slot"><span>Add Product Image</span></div>
+      <div class="sig-name">Asabe TechBundle</div>
+      <div class="sig-desc">A curated bundle of our best-selling gadgets and accessories under the Asabe quality guarantee.</div>
+      <div class="sig-price">&#8358; Add Price</div>
+      <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20order%20the%20Asabe%20TechBundle." class="btn btn-white" target="_blank" rel="noopener">Order on WhatsApp</a>
+    </div>
+    <div class="sig-card reveal d2">
+      <div class="sig-tag">Asabe Original</div>
+      <div class="sig-img-slot"><span>Add Product Image</span></div>
+      <div class="sig-name">Asabe ContainerBox</div>
+      <div class="sig-desc">Our branded 4ft container unit. Reinforced, weather-sealed and customised with the Asabe standard.</div>
+      <div class="sig-price">&#8358; Add Price</div>
+      <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20order%20the%20Asabe%20ContainerBox." class="btn btn-white" target="_blank" rel="noopener">Order on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- SOLAR SECTION -->
+<section class="section" id="solar">
+  <div class="section-header reveal">
+    <p class="section-label">Solar Energy</p>
+    <h2 class="section-title">Power That<br><em>Never Stops</em></h2>
+    <p class="section-sub">Complete solar solutions for homes and businesses across Nigeria. Quality systems, competitive pricing and nationwide delivery.</p>
+  </div>
+  <div class="product-grid">
+    <div class="product-card reveal">
+      <div class="product-img"><div class="product-img-placeholder"><span class="p-icon">&#9728;</span><span>200W Panel</span></div></div>
+      <div class="product-body">
+        <div class="product-cat">Solar Panel</div>
+        <div class="product-name">200W Monocrystalline Solar Panel</div>
+        <div class="product-price">&#8358; Add Price<small>Per unit</small></div>
+        <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20order%20a%20200W%20Solar%20Panel." class="wa-order" target="_blank" rel="noopener">&#128222; Order</a>
+      </div>
+    </div>
+    <div class="product-card reveal d1">
+      <div class="product-img"><div class="product-img-placeholder"><span class="p-icon">&#128267;</span><span>Inverter</span></div></div>
+      <div class="product-body">
+        <div class="product-cat">Inverter</div>
+        <div class="product-name">1.5KVA Pure Sine Wave Inverter</div>
+        <div class="product-price">&#8358; Add Price<small>Per unit</small></div>
+        <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20order%20a%201.5KVA%20Inverter." class="wa-order" target="_blank" rel="noopener">&#128222; Order</a>
+      </div>
+    </div>
+    <div class="product-card reveal d2">
+      <div class="product-img"><div class="product-img-placeholder"><span class="p-icon">&#128190;</span><span>Battery</span></div></div>
+      <div class="product-body">
+        <div class="product-cat">Battery</div>
+        <div class="product-name">200AH Deep Cycle Battery</div>
+        <div class="product-price">&#8358; Add Price<small>Per unit</small></div>
+        <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20order%20a%20200AH%20Battery." class="wa-order" target="_blank" rel="noopener">&#128222; Order</a>
+      </div>
+    </div>
+    <div class="product-card reveal d3">
+      <div class="product-img"><div class="product-img-placeholder"><span class="p-icon">&#9889;</span><span>Full Kit</span></div></div>
+      <div class="product-body">
+        <div class="product-cat">Complete Kit</div>
+        <div class="product-name">Complete Home Solar Kit</div>
+        <div class="product-price">&#8358; Add Price<small>Full kit</small></div>
+        <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20order%20a%20Complete%20Home%20Solar%20Kit." class="wa-order" target="_blank" rel="noopener">&#128222; Order</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLAR CALCULATOR -->
+<section class="calc-section">
+  <div class="calc-inner">
+    <div>
+      <p class="section-label reveal">Solar Calculator</p>
+      <h2 class="section-title reveal d1">What Solar System<br><em>Do You Need?</em></h2>
+      <p style="font-size:0.85rem; font-weight:300; color:var(--grey-600); line-height:1.9; margin-bottom:2rem;" class="reveal d2">Select the appliances you want to power and how many hours per day. We will calculate your recommended system and estimated cost.</p>
+      <div class="calc-appliances reveal d2" id="applianceGrid"></div>
+      <div class="calc-hours reveal d3">
+        <label>Daily Usage Hours: <span id="hoursVal">8</span> hrs</label>
+        <input type="range" min="1" max="24" value="8" class="hours-input" id="hoursSlider">
+      </div>
+      <button class="btn btn-black reveal d3" onclick="calcSolar()" style="margin-top:1.5rem;">Calculate My System</button>
+    </div>
+    <div class="calc-result reveal d2" id="calcResult">
+      <h3>Your Recommended System</h3>
+      <div class="result-line"><span class="result-key">Total Load</span><span class="result-val" id="rLoad">Select appliances to begin</span></div>
+      <div class="result-line"><span class="result-key">Daily Energy Needed</span><span class="result-val" id="rEnergy">&mdash;</span></div>
+      <div class="result-line"><span class="result-key">Recommended Inverter</span><span class="result-val" id="rInverter">&mdash;</span></div>
+      <div class="result-line"><span class="result-key">Solar Panels Needed</span><span class="result-val" id="rPanels">&mdash;</span></div>
+      <div class="result-line"><span class="result-key">Battery Capacity</span><span class="result-val" id="rBattery">&mdash;</span></div>
+      <div class="result-price" id="rPrice">&mdash;</div>
+      <p class="result-note">Estimates based on standard Nigerian household usage patterns. Final quote confirmed on WhatsApp after order review.</p>
+      <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20used%20the%20solar%20calculator%20and%20want%20a%20custom%20quote." class="btn btn-black" target="_blank" rel="noopener" style="width:100%; justify-content:center;" id="calcWaBtn">Get Quote on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- GADGETS -->
+<section class="section" id="gadgets">
+  <div class="section-header reveal">
+    <p class="section-label">Gadgets &amp; Tech</p>
+    <h2 class="section-title">Smart Products<br><em>for Modern Living</em></h2>
+    <p class="section-sub">Latest gadgets, phone accessories, smart devices and tech products at competitive prices. Nationwide delivery.</p>
+  </div>
+  <div class="product-grid">
+    <div class="product-card reveal">
+      <div class="product-img"><div class="product-img-placeholder"><span class="p-icon">&#127911;</span><span>Earbuds</span></div></div>
+      <div class="product-body">
+        <div class="product-cat">Audio</div>
+        <div class="product-name">Wireless Earbuds Pro</div>
+        <div class="product-price">&#8358; Add Price<small>Per unit</small></div>
+        <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20order%20Wireless%20Earbuds%20Pro." class="wa-order" target="_blank" rel="noopener">&#128222; Order</a>
+      </div>
+    </div>
+    <div class="product-card reveal d1">
+      <div class="product-img"><div class="product-img-placeholder"><span class="p-icon">&#128268;</span><span>Power Bank</span></div></div>
+      <div class="product-body">
+        <div class="product-cat">Power</div>
+        <div class="product-name">20000mAh Power Bank</div>
+        <div class="product-price">&#8358; Add Price<small>Per unit</small></div>
+        <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20order%20a%2020000mAh%20Power%20Bank." class="wa-order" target="_blank" rel="noopener">&#128222; Order</a>
+      </div>
+    </div>
+    <div class="product-card reveal d2">
+      <div class="product-img"><div class="product-img-placeholder"><span class="p-icon">&#128247;</span><span>Camera</span></div></div>
+      <div class="product-body">
+        <div class="product-cat">Security</div>
+        <div class="product-name">Mini WiFi Security Camera</div>
+        <div class="product-price">&#8358; Add Price<small>Per unit</small></div>
+        <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20order%20a%20Mini%20Security%20Camera." class="wa-order" target="_blank" rel="noopener">&#128222; Order</a>
+      </div>
+    </div>
+    <div class="product-card reveal d3">
+      <div class="product-img"><div class="product-img-placeholder"><span class="p-icon">&#8987;</span><span>Smart Watch</span></div></div>
+      <div class="product-body">
+        <div class="product-cat">Wearables</div>
+        <div class="product-name">Smart Watch Series X</div>
+        <div class="product-price">&#8358; Add Price<small>Per unit</small></div>
+        <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20order%20a%20Smart%20Watch%20Series%20X." class="wa-order" target="_blank" rel="noopener">&#128222; Order</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTAINERS -->
+<section class="section" id="containers">
+  <div class="section-header reveal">
+    <p class="section-label">Container Sales</p>
+    <h2 class="section-title">Built for<br><em>Purpose</em></h2>
+    <p class="section-sub">4ft containers for storage, offices, retail kiosks, cold rooms and customised commercial use. Ready to deploy anywhere in Nigeria.</p>
+  </div>
+  <div class="product-grid" style="grid-template-columns: repeat(2, 1fr);">
+    <div class="product-card reveal">
+      <div class="product-img" style="aspect-ratio:16/9;"><div class="product-img-placeholder"><span class="p-icon">&#128667;</span><span>Standard Container</span></div></div>
+      <div class="product-body">
+        <div class="product-cat">Container</div>
+        <div class="product-name">Standard 4ft Container</div>
+        <div class="product-price">&#8358; Add Price<small>Per unit</small></div>
+        <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20order%20a%20Standard%204ft%20Container." class="wa-order" target="_blank" rel="noopener">&#128222; Order</a>
+      </div>
+    </div>
+    <div class="product-card reveal d1">
+      <div class="product-img" style="aspect-ratio:16/9;"><div class="product-img-placeholder"><span class="p-icon">&#127981;</span><span>Modified Container</span></div></div>
+      <div class="product-body">
+        <div class="product-cat">Container</div>
+        <div class="product-name">Modified Office Container</div>
+        <div class="product-price">&#8358; Add Price<small>Per unit</small></div>
+        <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20order%20a%20Modified%20Office%20Container." class="wa-order" target="_blank" rel="noopener">&#128222; Order</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERY -->
+<section class="section" style="background: var(--grey-100);">
+  <div class="delivery-grid">
+    <div>
+      <p class="section-label reveal">Logistics</p>
+      <h2 class="section-title reveal d1">Nationwide<br><em>Delivery</em></h2>
+      <p style="font-size:0.85rem; font-weight:300; color:var(--grey-600); line-height:1.9; margin-bottom:2rem;" class="reveal d2">From Lagos to Maiduguri, Port Harcourt to Sokoto. Our network covers all 36 states and the FCT.</p>
+      <div class="delivery-items reveal d2">
+        <div class="delivery-item">
+          <div class="d-num">01</div>
+          <div class="d-text"><h4>Order on WhatsApp</h4><p>Browse, select your product and send us a message. We confirm your order within 30 minutes.</p></div>
+        </div>
+        <div class="delivery-item">
+          <div class="d-num">02</div>
+          <div class="d-text"><h4>Payment</h4><p>Pay via bank transfer before shipment. Pay on delivery available on select products and locations.</p></div>
+        </div>
+        <div class="delivery-item">
+          <div class="d-num">03</div>
+          <div class="d-text"><h4>Delivery</h4><p>Your order ships within 24 hours. Delivery typically takes 1-5 business days depending on location.</p></div>
+        </div>
+        <div class="delivery-item">
+          <div class="d-num">04</div>
+          <div class="d-text"><h4>WhatsApp Tracking</h4><p>We send real-time updates on your delivery from dispatch to arrival.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="delivery-map-box reveal d2">
+      <h3>36 States + FCT</h3>
+      <p>We deliver to every state in Nigeria. Confirm your location via WhatsApp before ordering.</p>
+      <div class="states-wrap">
+        <span class="state-pill">Lagos</span><span class="state-pill">Abuja</span><span class="state-pill">Port Harcourt</span>
+        <span class="state-pill">Kano</span><span class="state-pill">Ibadan</span><span class="state-pill">Enugu</span>
+        <span class="state-pill">Kaduna</span><span class="state-pill">Warri</span><span class="state-pill">Benin City</span>
+        <span class="state-pill">Aba</span><span class="state-pill">Jos</span><span class="state-pill">Ilorin</span>
+        <span class="state-pill">Calabar</span><span class="state-pill">Uyo</span><span class="state-pill">Sokoto</span>
+        <span class="state-pill">+ All States</span>
+      </div>
+      <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20confirm%20delivery%20to%20my%20location." class="btn btn-black" target="_blank" rel="noopener">Confirm My Location</a>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENT -->
+<section class="section">
+  <div class="section-header reveal">
+    <p class="section-label">Payments</p>
+    <h2 class="section-title">Simple.<br><em>Flexible.</em></h2>
+  </div>
+  <div class="payment-grid reveal d1">
+    <div class="payment-card">
+      <div class="payment-num">01</div>
+      <div class="payment-title">Bank Transfer</div>
+      <div class="payment-desc">Pay directly to our account before shipment. Account details shared via WhatsApp on order confirmation.</div>
+    </div>
+    <div class="payment-card">
+      <div class="payment-num">02</div>
+      <div class="payment-title">Pay on Delivery</div>
+      <div class="payment-desc">Available on select products in Lagos, Abuja and Port Harcourt. Confirm eligibility on WhatsApp first.</div>
+    </div>
+    <div class="payment-card">
+      <div class="payment-num">03</div>
+      <div class="payment-title">WhatsApp Order Flow</div>
+      <div class="payment-desc">Order via WhatsApp, receive payment details, confirm and we ship. Simple and personal every time.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about" style="background:var(--grey-100);">
+  <div class="about-grid">
     <div class="reveal">
-      <div class="signature-badge">&#11088; Asabe Conglomerate Originals</div>
-      <div class="section-label">Signature Collection</div>
-      <h2 class="section-title" style="color:var(--white);">Exclusively Ours.<br>Branded <em style="color:var(--gold);font-style:normal;">by Asabe.</em></h2>
-      <p class="section-sub">These three products carry our name. Designed, curated and branded directly by Asabe Conglomerate - built to a standard, not a price.</p>
+      <p class="section-label">About Asabe</p>
+      <h2 class="section-title">Many Ventures.<br><em>One Standard.</em></h2>
+      <p style="font-size:0.88rem; font-weight:300; color:var(--grey-600); line-height:2; margin-bottom:1rem;">Asabe Conglomerate is a Nigerian company built on the belief that quality and ambition are not mutually exclusive. We operate across solar energy, interior design, technology and container solutions.</p>
+      <p style="font-size:0.88rem; font-weight:300; color:var(--grey-600); line-height:2; margin-bottom:2rem;">Our name stands behind every product and service we offer. We deliver nationwide across all 36 states and the FCT, and we are only getting started.</p>
+      <a href="https://www.instagram.com/_asabeconglomerate" class="btn btn-black" target="_blank" rel="noopener">Follow on Instagram</a>
     </div>
-    <div class="signature-grid reveal reveal-delay-1">
-      <div class="sig-card">
-        <div class="sig-img">&#9728;</div>
-        <div class="sig-branded">&#11088; Asabe Original</div>
-        <div class="sig-name">Asabe SolarKit Pro</div>
-        <div class="sig-desc">Our flagship branded solar kit. Designed for Nigerian homes - powerful, reliable and built to handle NEPA outages with ease.</div>
-        <div class="sig-price">&#8358;Add Price <span>&#8358;Market Price</span></div>
-        <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20order%20the%20Asabe%20SolarKit%20Pro." class="btn btn-gold" target="_blank" rel="noopener" style="width:100%;justify-content:center;">&#128222; Order This Product</a>
-      </div>
-      <div class="sig-card">
-        <div class="sig-img">&#128241;</div>
-        <div class="sig-branded">&#11088; Asabe Original</div>
-        <div class="sig-name">Asabe TechBundle</div>
-        <div class="sig-desc">A curated bundle of our best-selling gadgets and accessories, packaged under the Asabe brand with quality guarantee.</div>
-        <div class="sig-price">&#8358;Add Price <span>&#8358;Market Price</span></div>
-        <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20order%20the%20Asabe%20TechBundle." class="btn btn-gold" target="_blank" rel="noopener" style="width:100%;justify-content:center;">&#128222; Order This Product</a>
-      </div>
-      <div class="sig-card">
-        <div class="sig-img">&#128667;</div>
-        <div class="sig-branded">&#11088; Asabe Original</div>
-        <div class="sig-name">Asabe ContainerBox</div>
-        <div class="sig-desc">Our branded 4ft container unit - reinforced, weather-sealed and customized with the Asabe mark. Perfect for business use.</div>
-        <div class="sig-price">&#8358;Add Price <span>&#8358;Market Price</span></div>
-        <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20order%20the%20Asabe%20ContainerBox." class="btn btn-gold" target="_blank" rel="noopener" style="width:100%;justify-content:center;">&#128222; Order This Product</a>
+    <div class="about-img reveal d1">
+      <div style="width:100%; aspect-ratio:1; background:var(--grey-200); display:flex; align-items:center; justify-content:center;">
+        <span style="font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--grey-400);">Add Brand Image</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- SHOP -->
-  <section class="section section-cream" id="shop">
-    <div class="section-header reveal">
-      <div class="section-label">Our Products</div>
-      <h2 class="section-title">Shop by Category</h2>
-      <p class="section-sub">Browse all our products. Click "Order on WhatsApp" on any item to send us a direct message and we will get back to you immediately.</p>
-    </div>
-    <div class="tabs reveal reveal-delay-1">
-      <button class="tab-btn active" onclick="switchTab(event,'solar')">&#9728; Solar</button>
-      <button class="tab-btn" onclick="switchTab(event,'gadgets')">&#128241; Gadgets</button>
-      <button class="tab-btn" onclick="switchTab(event,'containers')">&#128667; Containers</button>
-    </div>
-
-    <!-- SOLAR TAB -->
-    <div class="tab-panel active" id="tab-solar">
-      <div class="products-grid">
-        <div class="product-card reveal">
-          <div class="product-img">&#9728;<div class="product-badge">Solar</div></div>
-          <div class="product-body">
-            <div class="product-category">Solar Products</div>
-            <div class="product-name">200W Monocrystalline Solar Panel</div>
-            <div class="product-desc">High-efficiency mono panel suitable for home and small business use. Weather resistant and long lasting.</div>
-            <div class="product-footer">
-              <div class="product-price">&#8358;Add Price<small>Per unit</small></div>
-              <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20order%20a%20200W%20Monocrystalline%20Solar%20Panel." class="order-btn" target="_blank" rel="noopener">&#128222; Order</a>
-            </div>
-          </div>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-left">
+      <p class="section-label reveal">Contact</p>
+      <h2 class="section-title reveal d1">Get in<br><em>Touch</em></h2>
+      <div class="contact-items reveal d2">
+        <div class="contact-item">
+          <div class="c-icon">WA</div>
+          <div class="c-text"><h4>WhatsApp</h4><a href="https://wa.me/2347063853802" target="_blank" rel="noopener">+234 706 385 3802</a></div>
         </div>
-        <div class="product-card reveal reveal-delay-1">
-          <div class="product-img">&#128267;<div class="product-badge">Solar</div></div>
-          <div class="product-body">
-            <div class="product-category">Solar Products</div>
-            <div class="product-name">1.5KVA Solar Inverter</div>
-            <div class="product-desc">Pure sine wave inverter, compatible with all major battery brands. Ideal for powering home appliances.</div>
-            <div class="product-footer">
-              <div class="product-price">&#8358;Add Price<small>Per unit</small></div>
-              <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20order%20a%201.5KVA%20Solar%20Inverter." class="order-btn" target="_blank" rel="noopener">&#128222; Order</a>
-            </div>
-          </div>
+        <div class="contact-item">
+          <div class="c-icon">IG</div>
+          <div class="c-text"><h4>Instagram</h4><a href="https://www.instagram.com/_asabeconglomerate" target="_blank" rel="noopener">@_asabeconglomerate</a></div>
         </div>
-        <div class="product-card reveal reveal-delay-2">
-          <div class="product-img">&#128190;<div class="product-badge">Solar</div></div>
-          <div class="product-body">
-            <div class="product-category">Solar Products</div>
-            <div class="product-name">200AH Deep Cycle Battery</div>
-            <div class="product-desc">Long life deep cycle battery for solar storage. Handles multiple charge/discharge cycles reliably.</div>
-            <div class="product-footer">
-              <div class="product-price">&#8358;Add Price<small>Per unit</small></div>
-              <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20order%20a%20200AH%20Deep%20Cycle%20Battery." class="order-btn" target="_blank" rel="noopener">&#128222; Order</a>
-            </div>
-          </div>
+        <div class="contact-item">
+          <div class="c-icon">&#127758;</div>
+          <div class="c-text"><h4>Delivery</h4><p>All 36 states + FCT, Nigeria</p></div>
         </div>
-        <div class="product-card reveal reveal-delay-3">
-          <div class="product-img">&#9889;<div class="product-badge">Solar</div></div>
-          <div class="product-body">
-            <div class="product-category">Solar Products</div>
-            <div class="product-name">Complete Home Solar Kit</div>
-            <div class="product-desc">Full solar kit: 2 panels + inverter + battery + charge controller + installation guide. Everything in one box.</div>
-            <div class="product-footer">
-              <div class="product-price">&#8358;Add Price<small>Full kit</small></div>
-              <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20order%20a%20Complete%20Home%20Solar%20Kit." class="order-btn" target="_blank" rel="noopener">&#128222; Order</a>
-            </div>
-          </div>
+        <div class="contact-item">
+          <div class="c-icon">&#128336;</div>
+          <div class="c-text"><h4>Response Time</h4><p>Within 30 minutes on WhatsApp during business hours</p></div>
         </div>
       </div>
     </div>
-
-    <!-- GADGETS TAB -->
-    <div class="tab-panel" id="tab-gadgets">
-      <div class="products-grid">
-        <div class="product-card reveal">
-          <div class="product-img">&#127911;<div class="product-badge">Gadgets</div></div>
-          <div class="product-body">
-            <div class="product-category">Gadgets &amp; Accessories</div>
-            <div class="product-name">Wireless Earbuds Pro</div>
-            <div class="product-desc">Premium wireless earbuds with noise cancellation, 30hr battery life and fast charging case.</div>
-            <div class="product-footer">
-              <div class="product-price">&#8358;Add Price<small>Per unit</small></div>
-              <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20order%20Wireless%20Earbuds%20Pro." class="order-btn" target="_blank" rel="noopener">&#128222; Order</a>
-            </div>
-          </div>
-        </div>
-        <div class="product-card reveal reveal-delay-1">
-          <div class="product-img">&#128268;<div class="product-badge">Gadgets</div></div>
-          <div class="product-body">
-            <div class="product-category">Gadgets &amp; Accessories</div>
-            <div class="product-name">20000mAh Power Bank</div>
-            <div class="product-desc">Fast charging power bank with dual USB + Type-C ports. Enough juice to charge your phone 5 times over.</div>
-            <div class="product-footer">
-              <div class="product-price">&#8358;Add Price<small>Per unit</small></div>
-              <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20order%20a%2020000mAh%20Power%20Bank." class="order-btn" target="_blank" rel="noopener">&#128222; Order</a>
-            </div>
-          </div>
-        </div>
-        <div class="product-card reveal reveal-delay-2">
-          <div class="product-img">&#128247;<div class="product-badge">Gadgets</div></div>
-          <div class="product-body">
-            <div class="product-category">Gadgets &amp; Accessories</div>
-            <div class="product-name">Mini Security Camera</div>
-            <div class="product-desc">Compact WiFi camera with night vision, motion detection and mobile app support. Easy self-install.</div>
-            <div class="product-footer">
-              <div class="product-price">&#8358;Add Price<small>Per unit</small></div>
-              <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20order%20a%20Mini%20Security%20Camera." class="order-btn" target="_blank" rel="noopener">&#128222; Order</a>
-            </div>
-          </div>
-        </div>
-        <div class="product-card reveal reveal-delay-3">
-          <div class="product-img">&#128187;<div class="product-badge">Gadgets</div></div>
-          <div class="product-body">
-            <div class="product-category">Gadgets &amp; Accessories</div>
-            <div class="product-name">Smart Watch Series X</div>
-            <div class="product-desc">Fitness tracker, heart rate monitor, call and message notifications. Works with Android and iOS.</div>
-            <div class="product-footer">
-              <div class="product-price">&#8358;Add Price<small>Per unit</small></div>
-              <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20order%20a%20Smart%20Watch%20Series%20X." class="order-btn" target="_blank" rel="noopener">&#128222; Order</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CONTAINERS TAB -->
-    <div class="tab-panel" id="tab-containers">
-      <div class="products-grid">
-        <div class="product-card reveal">
-          <div class="product-img">&#128667;<div class="product-badge">Container</div></div>
-          <div class="product-body">
-            <div class="product-category">4ft Containers</div>
-            <div class="product-name">Standard 4ft Container</div>
-            <div class="product-desc">Weatherproof steel container. Great for storage, kiosks, retail pop-ups and site offices. Ready to use.</div>
-            <div class="product-footer">
-              <div class="product-price">&#8358;Add Price<small>Per unit</small></div>
-              <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20order%20a%20Standard%204ft%20Container." class="order-btn" target="_blank" rel="noopener">&#128222; Order</a>
-            </div>
-          </div>
-        </div>
-        <div class="product-card reveal reveal-delay-1">
-          <div class="product-img">&#127981;<div class="product-badge">Container</div></div>
-          <div class="product-body">
-            <div class="product-category">4ft Containers</div>
-            <div class="product-name">Modified Office Container</div>
-            <div class="product-desc">Customized container with windows, electrical fittings and insulation. Ideal for mobile offices or shops.</div>
-            <div class="product-footer">
-              <div class="product-price">&#8358;Add Price<small>Per unit</small></div>
-              <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20order%20a%20Modified%20Office%20Container." class="order-btn" target="_blank" rel="noopener">&#128222; Order</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DELIVERY -->
-  <section class="section section-dark" id="delivery">
-    <div class="delivery-grid">
-      <div>
-        <div class="section-label reveal" style="color:var(--gold);">Logistics</div>
-        <h2 class="section-title reveal reveal-delay-1" style="color:var(--white);">We Deliver<br>Everywhere in Nigeria</h2>
-        <p class="section-sub reveal reveal-delay-2">From Lagos to Maiduguri, Port Harcourt to Sokoto - our logistics network covers all 36 states plus the FCT.</p>
-        <div class="delivery-features reveal reveal-delay-3">
-          <div class="delivery-item">
-            <div class="delivery-icon">&#128666;</div>
-            <div>
-              <h4>Nationwide Delivery</h4>
-              <p>We deliver to all 36 states and FCT. Delivery timelines vary by location - typically 1-5 business days.</p>
-            </div>
-          </div>
-          <div class="delivery-item">
-            <div class="delivery-icon">&#128181;</div>
-            <div>
-              <h4>Pay on Delivery (Select Items)</h4>
-              <p>Available on selected products within Lagos, Abuja and Port Harcourt. Confirm eligibility on WhatsApp.</p>
-            </div>
-          </div>
-          <div class="delivery-item">
-            <div class="delivery-icon">&#127758;</div>
-            <div>
-              <h4>Bank Transfer</h4>
-              <p>Pay via bank transfer before shipment. Account details shared on WhatsApp after order confirmation.</p>
-            </div>
-          </div>
-          <div class="delivery-item">
-            <div class="delivery-icon">&#128205;</div>
-            <div>
-              <h4>Order Tracking</h4>
-              <p>Get real-time updates on your delivery via WhatsApp from the moment your order leaves us.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="delivery-map reveal reveal-delay-2">
-        <div class="delivery-map-icon">&#127758;</div>
-        <h3>36 States + FCT</h3>
-        <p>We deliver to every state in Nigeria. Some of our covered locations:</p>
-        <div class="states-list">
-          <span class="state-tag">Lagos</span><span class="state-tag">Abuja</span>
-          <span class="state-tag">Port Harcourt</span><span class="state-tag">Kano</span>
-          <span class="state-tag">Ibadan</span><span class="state-tag">Enugu</span>
-          <span class="state-tag">Kaduna</span><span class="state-tag">Warri</span>
-          <span class="state-tag">Benin City</span><span class="state-tag">Aba</span>
-          <span class="state-tag">Jos</span><span class="state-tag">Ilorin</span>
-          <span class="state-tag">Calabar</span><span class="state-tag">Uyo</span>
-          <span class="state-tag">+ All Other States</span>
-        </div>
-        <br>
-        <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20confirm%20delivery%20to%20my%20location." class="btn btn-wa" target="_blank" rel="noopener" style="margin-top:1rem;">&#128222; Confirm My Location</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- PAYMENT -->
-  <section class="section section-black">
-    <div class="section-header reveal" style="text-align:center;">
-      <div class="section-label" style="justify-content:center;">Payments</div>
-      <h2 class="section-title" style="color:var(--white);">How to Pay</h2>
-      <p class="section-sub" style="margin:0 auto;">We keep payments simple and stress free. Choose what works best for you.</p>
-    </div>
-    <div class="payment-cards reveal reveal-delay-1">
-      <div class="payment-card">
-        <div class="payment-card-icon">&#127974;</div>
-        <h4>Bank Transfer</h4>
-        <p>Transfer payment directly to our account. Account details are shared via WhatsApp once you confirm your order.</p>
-      </div>
-      <div class="payment-card">
-        <div class="payment-card-icon">&#128666;</div>
-        <h4>Pay on Delivery</h4>
-        <p>Available on selected products and locations. Pay cash when your item arrives at your door. Confirm eligibility on WhatsApp first.</p>
-      </div>
-      <div class="payment-card">
-        <div class="payment-card-icon">&#128222;</div>
-        <h4>WhatsApp Order Flow</h4>
-        <p>Browse, select your product, tap Order on WhatsApp - we will confirm, share payment details and keep you updated throughout.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONSULTATION -->
-  <section class="section section-dark" id="consult">
-    <div class="consult-grid">
-      <div>
-        <div class="section-label reveal" style="color:var(--gold);">Consultations</div>
-        <h2 class="section-title reveal reveal-delay-1" style="color:var(--white);">Transform Your<br><em style="color:var(--gold);font-style:normal;">Space</em> with Us</h2>
-        <p class="section-sub reveal reveal-delay-2">Our interior and exterior design consultation service helps you plan, visualize and execute your dream space - residential or commercial.</p>
-        <div class="consult-actions reveal reveal-delay-3">
-          <a href="https://wa.me/2347063853802?text=Hello%20Asabe%20Conglomerate%2C%20I%20would%20like%20to%20book%20a%20consultation." class="consult-action-btn wa" target="_blank" rel="noopener">
-            <span class="consult-action-icon">&#128222;</span>
-            <div class="consult-action-text">
-              <h4>Book via WhatsApp</h4>
-              <p>Chat with us directly to schedule your consultation session</p>
-            </div>
-          </a>
-          <a href="https://www.instagram.com/" class="consult-action-btn ig" target="_blank" rel="noopener">
-            <span class="consult-action-icon">&#128247;</span>
-            <div class="consult-action-text">
-              <h4>DM us on Instagram</h4>
-              <p>See our past work and reach out through our Instagram page</p>
-            </div>
-          </a>
-        </div>
-      </div>
-      <div>
-        <div class="consult-cards reveal reveal-delay-2">
-          <div class="consult-card">
-            <div class="consult-card-icon">&#127968;</div>
-            <h4>Interior Design</h4>
-            <p>Living rooms, bedrooms, kitchens and offices. We help you plan colour, furniture, lighting and layout.</p>
-          </div>
-          <div class="consult-card">
-            <div class="consult-card-icon">&#127795;</div>
-            <h4>Exterior Design</h4>
-            <p>Facades, gardens, gates, paving and outdoor spaces. Curb appeal that makes a statement.</p>
-          </div>
-          <div class="consult-card">
-            <div class="consult-card-icon">&#127963;</div>
-            <h4>Commercial Spaces</h4>
-            <p>Offices, shops and hospitality spaces designed for function and brand impression.</p>
-          </div>
-          <div class="consult-card">
-            <div class="consult-card-icon">&#128196;</div>
-            <h4>Design Planning</h4>
-            <p>Get a detailed space plan, material list and budget estimate before any work begins.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section section-cream" id="contact">
-    <div class="section-header reveal">
-      <div class="section-label">Get in Touch</div>
-      <h2 class="section-title">Talk to Us</h2>
-    </div>
-    <div class="contact-grid">
-      <div>
-        <div class="contact-info reveal reveal-delay-1">
-          <div class="contact-item">
-            <div class="contact-item-icon">&#128222;</div>
-            <div class="contact-item-text">
-              <h4>WhatsApp Orders</h4>
-              <a href="https://wa.me/2347063853802" target="_blank" rel="noopener">+234 706 385 3802</a>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">&#128247;</div>
-            <div class="contact-item-text">
-              <h4>Instagram</h4>
-              <a href="https://www.instagram.com/" target="_blank" rel="noopener">@asabeconglomerate (update handle)</a>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">&#127758;</div>
-            <div class="contact-item-text">
-              <h4>Delivery Coverage</h4>
-              <p>All 36 states + FCT, Nigeria</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">&#128336;</div>
-            <div class="contact-item-text">
-              <h4>Response Time</h4>
-              <p>We respond within 30 minutes on WhatsApp during business hours</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="contact-cta reveal reveal-delay-2">
-        <h3>Ready to Order or Consult?</h3>
-        <p>The fastest way to reach us is WhatsApp. Tap below to start a conversation - whether you want to order a product, ask about delivery, or book a design consultation.</p>
-        <div class="contact-cta-btns">
+    <div class="contact-right">
+      <div class="contact-right-inner reveal">
+        <p class="section-label">Ready?</p>
+        <h2>Order, Enquire<br><em>or Consult.</em></h2>
+        <p>The fastest way to reach us is WhatsApp. Whether you want to order a product, get a solar quote, or book a design consultation &mdash; we are ready.</p>
+        <div class="contact-right-btns">
           <a href="https://wa.me/2347063853802?text=Hello%20Asabe%20Conglomerate%2C%20I%20would%20like%20to%20place%20an%20order." class="btn btn-wa" target="_blank" rel="noopener">&#128222; Order on WhatsApp</a>
-          <a href="https://wa.me/2347063853802?text=Hello%20Asabe%20Conglomerate%2C%20I%20would%20like%20to%20book%20a%20consultation." class="btn btn-dark" target="_blank" rel="noopener">&#127968; Book a Consultation</a>
-          <a href="https://www.instagram.com/" class="btn btn-outline" target="_blank" rel="noopener" style="border-color:rgba(0,0,0,0.2);color:var(--dark);">&#128247; Visit Our Instagram</a>
+          <a href="https://wa.me/2347063853802?text=Hello%20Asabe%20Conglomerate%2C%20I%20want%20to%20book%20a%20design%20consultation." class="btn btn-white" target="_blank" rel="noopener">Book a Consultation</a>
+          <a href="https://www.instagram.com/_asabeconglomerate" class="btn btn-outline" target="_blank" rel="noopener" style="border-color:rgba(255,255,255,0.2);color:var(--white);">Visit Instagram</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a class="nav-logo" href="#" style="font-size:1.2rem;">Asabe <span>Conglomerate</span></a>
-        <p>Solar products, gadgets, interior and exterior consultations, and container sales. Quality you can trust, delivered nationwide across Nigeria.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Products</h4>
-        <a href="#shop" onclick="switchTabDirect('solar')">Solar Products</a>
-        <a href="#shop" onclick="switchTabDirect('gadgets')">Gadgets &amp; Accessories</a>
-        <a href="#shop" onclick="switchTabDirect('containers')">Container Sales</a>
-        <a href="#signature">Signature Collection</a>
-      </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <a href="#consult">Interior Consultation</a>
-        <a href="#consult">Exterior Consultation</a>
-        <a href="#delivery">Nationwide Delivery</a>
-        <a href="#delivery">Pay on Delivery</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <a href="https://wa.me/2347063853802" target="_blank" rel="noopener">WhatsApp Us</a>
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
-        <a href="#contact">Get in Touch</a>
-      </div>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo-text">Asabe Conglomerate</div>
+      <p>Solar energy, interior and exterior design, gadgets and container solutions. Quality without compromise. Delivered nationwide across Nigeria.</p>
     </div>
-    <div class="footer-bottom">
-      <p>2026 Asabe Conglomerate. All rights reserved.</p>
-      <div class="footer-socials">
-        <a href="https://wa.me/2347063853802" class="footer-social" target="_blank" rel="noopener">W</a>
-        <a href="https://www.instagram.com/" class="footer-social" target="_blank" rel="noopener">IG</a>
-      </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="#solar">Solar Systems</a>
+      <a href="#gadgets">Gadgets &amp; Tech</a>
+      <a href="#containers">Containers</a>
+      <a href="#categories">Signature Collection</a>
     </div>
-  </footer>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="interior.html">Interior Design</a>
+      <a href="interior.html">Exterior Design</a>
+      <a href="interior.html#workspaces">Commercial Spaces</a>
+      <a href="#solar">Solar Consultation</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="https://wa.me/2347063853802" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://www.instagram.com/_asabeconglomerate" target="_blank" rel="noopener">Instagram</a>
+      <a href="#contact">Contact Us</a>
+      <a href="#about">About Asabe</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>2026 Asabe Conglomerate. Many Ventures One Standard.</p>
+    <div class="footer-socials">
+      <a href="https://wa.me/2347063853802" class="footer-social" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://www.instagram.com/_asabeconglomerate" class="footer-social" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</footer>
 
-  <script>
-    var t = document.getElementById("navToggle");
-    var l = document.getElementById("navLinks");
-    if (t && l) {
-      t.addEventListener("click", function() { t.classList.toggle("open"); l.classList.toggle("open"); document.body.style.overflow = l.classList.contains("open") ? "hidden" : ""; });
-      var items = l.querySelectorAll("a");
-      for (var i = 0; i < items.length; i++) {
-        items[i].addEventListener("click", function() { t.classList.remove("open"); l.classList.remove("open"); document.body.style.overflow = ""; });
-      }
+<script>
+var t = document.getElementById("navToggle");
+var l = document.getElementById("navLinks");
+if (t && l) {
+  t.addEventListener("click", function() { t.classList.toggle("open"); l.classList.toggle("open"); document.body.style.overflow = l.classList.contains("open") ? "hidden" : ""; });
+  var items = l.querySelectorAll("a");
+  for (var i = 0; i < items.length; i++) {
+    items[i].addEventListener("click", function() { t.classList.remove("open"); l.classList.remove("open"); document.body.style.overflow = ""; });
+  }
+}
+var els = document.querySelectorAll(".reveal");
+if (window.IntersectionObserver) {
+  var obs = new IntersectionObserver(function(entries) {
+    for (var i = 0; i < entries.length; i++) {
+      if (entries[i].isIntersecting) { entries[i].target.classList.add("visible"); obs.unobserve(entries[i].target); }
     }
-    var els = document.querySelectorAll(".reveal");
-    if (window.IntersectionObserver) {
-      var obs = new IntersectionObserver(function(entries) {
-        for (var i = 0; i < entries.length; i++) {
-          if (entries[i].isIntersecting) { entries[i].target.classList.add("visible"); obs.unobserve(entries[i].target); }
-        }
-      }, { threshold: 0.1 });
-      for (var j = 0; j < els.length; j++) { obs.observe(els[j]); }
-    } else {
-      for (var k = 0; k < els.length; k++) { els[k].classList.add("visible"); }
-    }
-    function switchTab(e, id) {
-      var btns = document.querySelectorAll(".tab-btn");
-      var panels = document.querySelectorAll(".tab-panel");
-      for (var i = 0; i < btns.length; i++) { btns[i].classList.remove("active"); }
-      for (var i = 0; i < panels.length; i++) { panels[i].classList.remove("active"); }
-      e.target.classList.add("active");
-      var panel = document.getElementById("tab-" + id);
-      if (panel) { panel.classList.add("active"); }
-    }
-    function switchTabDirect(id) {
-      var btns = document.querySelectorAll(".tab-btn");
-      var panels = document.querySelectorAll(".tab-panel");
-      for (var i = 0; i < btns.length; i++) { btns[i].classList.remove("active"); }
-      for (var i = 0; i < panels.length; i++) { panels[i].classList.remove("active"); }
-      var panel = document.getElementById("tab-" + id);
-      if (panel) { panel.classList.add("active"); }
-    }
-  </script>
+  }, { threshold: 0.1 });
+  for (var j = 0; j < els.length; j++) { obs.observe(els[j]); }
+} else {
+  for (var k = 0; k < els.length; k++) { els[k].classList.add("visible"); }
+}
+var appliances = [
+  { name: "LED Bulb", watts: 10, qty: 1 },
+  { name: "Ceiling Fan", watts: 75, qty: 1 },
+  { name: "32-inch TV", watts: 60, qty: 1 },
+  { name: "Refrigerator", watts: 150, qty: 1 },
+  { name: "Freezer", watts: 200, qty: 1 },
+  { name: "Laptop", watts: 65, qty: 1 },
+  { name: "Phone Charger", watts: 20, qty: 1 },
+  { name: "Standing Fan", watts: 55, qty: 1 },
+  { name: "Water Pump", watts: 500, qty: 1 },
+  { name: "Air Conditioner", watts: 1500, qty: 1 },
+  { name: "Microwave", watts: 900, qty: 1 },
+  { name: "Iron", watts: 1000, qty: 1 }
+];
+var selected = {};
+var grid = document.getElementById("applianceGrid");
+if (grid) {
+  appliances.forEach(function(a, idx) {
+    var div = document.createElement("div");
+    div.className = "appliance-item";
+    div.setAttribute("data-idx", idx);
+    div.innerHTML = '<div class="app-header"><span class="app-name">' + a.name + '</span><span class="app-watts">' + a.watts + 'W</span></div><div class="app-qty"><button onclick="changeQty(event,' + idx + ',-1)">-</button><span id="qty-' + idx + '">1</span><button onclick="changeQty(event,' + idx + ',1)">+</button></div>';
+    div.addEventListener("click", function(e) {
+      if (e.target.tagName === "BUTTON") return;
+      var i = parseInt(this.getAttribute("data-idx"));
+      if (selected[i]) { delete selected[i]; this.classList.remove("selected"); }
+      else { selected[i] = { watts: appliances[i].watts, qty: parseInt(document.getElementById("qty-" + i).textContent) }; this.classList.add("selected"); }
+    });
+    grid.appendChild(div);
+  });
+}
+function changeQty(e, idx, delta) {
+  e.stopPropagation();
+  var el = document.getElementById("qty-" + idx);
+  var v = Math.max(1, parseInt(el.textContent) + delta);
+  el.textContent = v;
+  if (selected[idx]) { selected[idx].qty = v; selected[idx].watts = appliances[idx].watts; }
+}
+function calcSolar() {
+  var hours = parseInt(document.getElementById("hoursSlider").value);
+  var totalW = 0;
+  Object.keys(selected).forEach(function(k) { totalW += selected[k].watts * selected[k].qty; });
+  if (totalW === 0) { alert("Please select at least one appliance."); return; }
+  var dailyWh = totalW * hours;
+  var inverterKVA = totalW < 1000 ? "1.5 KVA" : totalW < 2000 ? "2 KVA" : totalW < 3500 ? "3.5 KVA" : "5 KVA";
+  var panels = Math.ceil(dailyWh / (250 * 4));
+  var battAH = Math.ceil(dailyWh / 12 * 1.25);
+  var battStr = battAH <= 100 ? "1 x 100AH" : battAH <= 200 ? "1 x 200AH" : battAH <= 400 ? "2 x 200AH" : "4 x 200AH";
+  var basePrice = 180000 + (panels * 85000) + (battAH * 800);
+  document.getElementById("rLoad").textContent = totalW + "W";
+  document.getElementById("rEnergy").textContent = dailyWh + "Wh / day";
+  document.getElementById("rInverter").textContent = inverterKVA + " Inverter";
+  document.getElementById("rPanels").textContent = panels + " x 300W Panel" + (panels > 1 ? "s" : "");
+  document.getElementById("rBattery").textContent = battStr + " Battery";
+  document.getElementById("rPrice").innerHTML = "&#8358;" + basePrice.toLocaleString() + " &ndash; &#8358;" + Math.round(basePrice * 1.15).toLocaleString();
+  var msg = "Hello Asabe Conglomerate, I used the solar calculator. My load is " + totalW + "W, daily usage " + hours + " hours. Recommended: " + inverterKVA + ", " + panels + " panels, " + battStr + ". Please send me a custom quote.";
+  document.getElementById("calcWaBtn").href = "https://wa.me/2347063853802?text=" + encodeURIComponent(msg);
+}
+document.getElementById("hoursSlider") && document.getElementById("hoursSlider").addEventListener("input", function() { document.getElementById("hoursVal").textContent = this.value; });
+</script>
 </body>
 </html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Asabe Interiors - Curated interior and exterior design consultations for residential and commercial spaces in Nigeria.">
+  <title>Asabe Interiors | Asabe Conglomerate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white: #ffffff; --black: #0a0a0a;
+      --grey-100: #f5f5f5; --grey-200: #e8e8e8;
+      --grey-400: #999999; --grey-600: #555555;
+      --jost: "Jost", sans-serif;
+      --cormorant: "Cormorant Garamond", serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--white); color: var(--black); font-family: var(--jost); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1{transition-delay:0.1s;} .d2{transition-delay:0.2s;} .d3{transition-delay:0.3s;}
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 60px; background: var(--white); border-bottom: 1px solid var(--grey-200); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; }
+    .nav-logo-img { height: 36px; width: auto; object-fit: contain; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-links a { font-size: 0.72rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-600); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--black); }
+    .nav-cta { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; background: var(--black); color: var(--white) !important; padding: 0.6rem 1.4rem; transition: background 0.2s !important; }
+    .nav-cta:hover { background: #333 !important; }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-toggle span { display: block; width: 22px; height: 1px; background: var(--black); transition: all 0.3s; }
+
+    .section-label { font-size: 0.65rem; font-weight: 400; letter-spacing: 0.25em; text-transform: uppercase; color: var(--grey-400); margin-bottom: 0.75rem; }
+    .section-title { font-family: var(--cormorant); font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 300; line-height: 1.1; }
+    .section-title em { font-style: italic; }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--jost); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.85rem 2rem; border: 1px solid; transition: all 0.25s; cursor: pointer; }
+    .btn-black { background: var(--black); color: var(--white); border-color: var(--black); }
+    .btn-black:hover { background: var(--white); color: var(--black); }
+    .btn-outline { background: transparent; color: var(--black); border-color: var(--black); }
+    .btn-outline:hover { background: var(--black); color: var(--white); }
+    .btn-wa { background: #25d366; color: var(--white); border-color: #25d366; }
+    .btn-wa:hover { background: #1da851; border-color: #1da851; }
+
+    .int-hero { margin-top: 60px; display: grid; grid-template-columns: 1fr 1fr; min-height: 80vh; }
+    .int-hero-img { background: var(--grey-100); overflow: hidden; position: relative; }
+    .int-hero-img-placeholder { width: 100%; height: 100%; min-height: 500px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; }
+    .int-hero-img-placeholder span { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--grey-400); }
+    .int-hero-text { display: flex; flex-direction: column; justify-content: flex-end; padding: 5rem 4rem; border-left: 1px solid var(--grey-200); }
+    .int-hero-text h1 { font-family: var(--cormorant); font-size: clamp(3.5rem, 6vw, 6rem); font-weight: 300; line-height: 1.0; margin-bottom: 1.5rem; }
+    .int-hero-text h1 em { font-style: italic; }
+    .int-hero-text p { font-size: 0.88rem; font-weight: 300; color: var(--grey-600); line-height: 2; max-width: 420px; margin-bottom: 2.5rem; }
+    .int-hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .filter-bar { display: flex; gap: 0; border-bottom: 1px solid var(--grey-200); padding: 0 2.5rem; overflow-x: auto; background: var(--white); position: sticky; top: 60px; z-index: 100; }
+    .filter-btn { padding: 1.1rem 1.75rem; font-size: 0.68rem; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; background: none; border: none; cursor: pointer; color: var(--grey-400); border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; transition: all 0.2s; font-family: var(--jost); }
+    .filter-btn.active { color: var(--black); border-bottom-color: var(--black); }
+
+    .gallery-section { padding: 3rem 2.5rem; }
+    .gallery-header { margin-bottom: 2.5rem; }
+    .gallery-intro { font-size: 0.85rem; font-weight: 300; color: var(--grey-600); max-width: 600px; line-height: 1.9; margin-top: 0.75rem; }
+
+    .masonry { columns: 3; column-gap: 1px; background: var(--grey-200); }
+    .masonry-item { break-inside: avoid; margin-bottom: 1px; overflow: hidden; position: relative; cursor: pointer; display: block; }
+    .masonry-placeholder { background: var(--grey-100); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; }
+    .masonry-placeholder.sq { aspect-ratio: 1; }
+    .masonry-placeholder.tall { aspect-ratio: 2/3; }
+    .masonry-placeholder.wide { aspect-ratio: 4/3; }
+    .masonry-placeholder.xtall { aspect-ratio: 9/16; }
+    .masonry-placeholder span { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-400); text-align: center; padding: 0 1rem; }
+    .img-caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem 1rem 1rem; background: linear-gradient(to top, rgba(0,0,0,0.55), transparent); color: var(--white); font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0; transition: opacity 0.3s; }
+    .masonry-item:hover .img-caption { opacity: 1; }
+
+    .hidden-panel { display: none; }
+    .hidden-panel.active { display: block; }
+
+    .consult-strip { background: var(--black); color: var(--white); padding: 5rem 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .consult-strip h2 { font-family: var(--cormorant); font-size: clamp(2.5rem, 4vw, 4rem); font-weight: 300; color: var(--white); line-height: 1.05; }
+    .consult-strip h2 em { font-style: italic; }
+    .consult-strip p { font-size: 0.85rem; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 2; margin-bottom: 2rem; }
+    .consult-strip-btns { display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+    .btn-white { background: var(--white); color: var(--black); border-color: var(--white); }
+    .btn-white:hover { background: transparent; color: var(--white); }
+
+    .process-section { padding: 6rem 2.5rem; background: var(--grey-100); }
+    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--grey-200); margin-top: 3rem; }
+    .process-card { background: var(--grey-100); padding: 2.5rem 2rem; }
+    .process-num { font-family: var(--cormorant); font-size: 3rem; font-weight: 300; color: var(--grey-200); margin-bottom: 1rem; line-height: 1; }
+    .process-title { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); margin-bottom: 0.75rem; }
+    .process-desc { font-size: 0.8rem; font-weight: 300; color: var(--grey-600); line-height: 1.8; }
+
+    .disclaimer { padding: 2rem 2.5rem; border-top: 1px solid var(--grey-200); }
+    .disclaimer p { font-size: 0.72rem; font-weight: 300; color: var(--grey-400); line-height: 1.8; max-width: 800px; }
+
+    footer { background: var(--black); color: var(--white); padding: 3rem 2.5rem 2rem; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-bottom p { font-size: 0.7rem; font-weight: 300; color: rgba(255,255,255,0.2); letter-spacing: 0.08em; }
+    .footer-links { display: flex; gap: 2rem; }
+    .footer-links a { font-size: 0.7rem; font-weight: 300; color: rgba(255,255,255,0.35); letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+
+    .wa-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 400; width: 50px; height: 50px; border-radius: 50%; background: #25d366; color: var(--white); display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 16px rgba(37,211,102,0.35); transition: transform 0.2s; font-size: 1.3rem; }
+    .wa-float:hover { transform: scale(1.1); }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { display: none; flex-direction: column; gap: 1.5rem; align-items: center; }
+      .nav-links.open { display: flex; position: fixed; top: 60px; left: 0; right: 0; bottom: 0; background: var(--white); justify-content: center; z-index: 499; }
+      .nav-toggle { display: flex; }
+      .int-hero { grid-template-columns: 1fr; }
+      .int-hero-img { min-height: 55vw; }
+      .int-hero-text { padding: 3rem 1.25rem; border-left: none; border-top: 1px solid var(--grey-200); }
+      .masonry { columns: 2; }
+      .gallery-section { padding: 2rem 1.25rem; }
+      .consult-strip { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 1.25rem; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .filter-bar { padding: 0 1.25rem; }
+    }
+    @media (max-width: 600px) {
+      .masonry { columns: 1; }
+      .process-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="https://wa.me/2347063853802?text=Hello%20Asabe%20Conglomerate%2C%20I%20would%20like%20to%20book%20an%20interior%20consultation." class="wa-float" target="_blank" rel="noopener" aria-label="Book consultation on WhatsApp">&#128222;</a>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="asabe.png" alt="Asabe Conglomerate" class="nav-logo-img">
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="interior.html" class="active">Interiors</a>
+    <a href="index.html#solar">Solar</a>
+    <a href="index.html#gadgets">Gadgets</a>
+    <a href="index.html#containers">Containers</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="https://wa.me/2347063853802" target="_blank" rel="noopener" class="nav-cta">Book Now</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section class="int-hero">
+  <div class="int-hero-img">
+    <div class="int-hero-img-placeholder">
+      <span>Hero Interior Image</span>
+      <span>Replace with your best photo</span>
+    </div>
+  </div>
+  <div class="int-hero-text">
+    <div class="reveal">
+      <p class="section-label">Asabe Interiors</p>
+      <h1>Spaces That<br><em>Define</em><br>Taste.</h1>
+    </div>
+    <p class="reveal d1">We bring globally curated interior and exterior design aesthetics to Nigeria. Spaces that feel considered, unhurried and extraordinary &mdash; whether residential, commercial or open air.</p>
+    <div class="int-hero-actions reveal d2">
+      <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20book%20an%20interior%20design%20consultation%20with%20Asabe." class="btn btn-black" target="_blank" rel="noopener">Book a Consultation</a>
+      <a href="https://www.instagram.com/_asabeconglomerate" class="btn btn-outline" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</section>
+
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="filterGallery(event, 'all')">All Spaces</button>
+  <button class="filter-btn" onclick="filterGallery(event, 'living')">Living Spaces</button>
+  <button class="filter-btn" onclick="filterGallery(event, 'work')" id="workBtn">Work Spaces</button>
+  <button class="filter-btn" onclick="filterGallery(event, 'open')" id="openBtn">Open Spaces</button>
+</div>
+
+<!-- ALL GALLERY -->
+<div class="gallery-section" id="panel-all">
+  <div class="gallery-header reveal">
+    <p class="section-label">Curated Inspirations</p>
+    <h2 class="section-title">The Full <em>Collection</em></h2>
+    <p class="gallery-intro">A curated selection of global interior and exterior references that define the Asabe design language. These spaces represent the aesthetic direction we bring to every consultation.</p>
+  </div>
+  <div class="masonry">
+    <div class="masonry-item"><div class="masonry-placeholder tall"><span>Living Space 01&#10;Replace with IMG_6296</span></div><div class="img-caption">Kitchen &amp; Dining</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder sq"><span>Open Space 01&#10;Replace with IMG_6316</span></div><div class="img-caption">Open Space</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder xtall"><span>Living Space 02&#10;Replace with IMG_6298</span></div><div class="img-caption">Architectural Detail</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder wide"><span>Work Space 01&#10;Replace with IMG_6309</span></div><div class="img-caption">Executive Office</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder tall"><span>Living Space 03&#10;Replace with IMG_6301</span></div><div class="img-caption">Living Space</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder sq"><span>Open Space 02&#10;Replace with IMG_6335</span></div><div class="img-caption">Glass &amp; Wood</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder xtall"><span>Living Space 04&#10;Replace with IMG_6315</span></div><div class="img-caption">Japandi Living</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder wide"><span>Work Space 02&#10;Replace with IMG_6311</span></div><div class="img-caption">Office Lounge</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder tall"><span>Living Space 05&#10;Replace with IMG_6323</span></div><div class="img-caption">Bedroom Storage</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder sq"><span>Open Space 03&#10;Replace with IMG_6337</span></div><div class="img-caption">Courtyard</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder xtall"><span>Living Space 06&#10;Replace with IMG_6324</span></div><div class="img-caption">Dining Space</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder sq"><span>Work Space 03&#10;Replace with IMG_6312</span></div><div class="img-caption">Modern Workstation</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder tall"><span>Living Space 07&#10;Replace with IMG_6325</span></div><div class="img-caption">Wardrobe</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder wide"><span>Open Space 04&#10;Replace with IMG_6338</span></div><div class="img-caption">Garden Exterior</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder sq"><span>Living Space 08&#10;Replace with IMG_6330</span></div><div class="img-caption">Bedroom</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder tall"><span>Living Space 09&#10;Replace with IMG_6332</span></div><div class="img-caption">City Apartment</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder xtall"><span>Living Space 10&#10;Replace with IMG_6333</span></div><div class="img-caption">Kitchen</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder sq"><span>Living Space 11&#10;Replace with IMG_6342</span></div><div class="img-caption">Kitchen Island</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder tall"><span>Living Space 12&#10;Replace with IMG_6343</span></div><div class="img-caption">Living Room</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder wide"><span>Living Space 13&#10;Replace with IMG_6344</span></div><div class="img-caption">Bedroom</div></div>
+  </div>
+</div>
+
+<!-- LIVING SPACES -->
+<div class="gallery-section hidden-panel" id="panel-living">
+  <div class="gallery-header reveal">
+    <p class="section-label">Living Spaces</p>
+    <h2 class="section-title">Where Warmth<br><em>Meets Precision</em></h2>
+    <p class="gallery-intro">Residential spaces — kitchens, dining rooms, living rooms, bedrooms and private spaces. Rich wood tones, natural materials and intentional lighting.</p>
+  </div>
+  <div class="masonry">
+    <div class="masonry-item"><div class="masonry-placeholder tall"><span>Replace with IMG_6296&#10;Kitchen &amp; Dining</span></div><div class="img-caption">Kitchen &amp; Dining</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder xtall"><span>Replace with IMG_6298&#10;Staircase Detail</span></div><div class="img-caption">Architectural Detail</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder sq"><span>Replace with IMG_6301&#10;Minimal Living</span></div><div class="img-caption">Living Space</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder wide"><span>Replace with IMG_6315&#10;Japandi</span></div><div class="img-caption">Japandi Living</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder tall"><span>Replace with IMG_6323&#10;Bedroom</span></div><div class="img-caption">Bedroom Storage</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder sq"><span>Replace with IMG_6324&#10;Dining</span></div><div class="img-caption">Dining Space</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder xtall"><span>Replace with IMG_6325&#10;Wardrobe</span></div><div class="img-caption">Wardrobe</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder sq"><span>Replace with IMG_6330&#10;Bedroom</span></div><div class="img-caption">Bedroom</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder tall"><span>Replace with IMG_6332&#10;City Apartment</span></div><div class="img-caption">City Apartment</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder wide"><span>Replace with IMG_6333&#10;Kitchen</span></div><div class="img-caption">Kitchen</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder sq"><span>Replace with IMG_6342&#10;Dark Kitchen</span></div><div class="img-caption">Kitchen Island</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder tall"><span>Replace with IMG_6343&#10;Living Room</span></div><div class="img-caption">Living Room</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder wide"><span>Replace with IMG_6344&#10;Bedroom</span></div><div class="img-caption">Bedroom</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder sq"><span>Replace with IMG_6326&#10;Dining Room</span></div><div class="img-caption">Dining Room</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder tall"><span>Replace with IMG_6346&#10;Living Room</span></div><div class="img-caption">Open Living</div></div>
+  </div>
+</div>
+
+<!-- WORK SPACES -->
+<div class="gallery-section hidden-panel" id="panel-work">
+  <div class="gallery-header reveal">
+    <p class="section-label">Work Spaces</p>
+    <h2 class="section-title">Offices Built<br><em>for Ambition</em></h2>
+    <p class="gallery-intro">Executive offices, open plan workspaces and commercial interiors. Spaces that communicate authority and focus before a word is spoken.</p>
+  </div>
+  <div class="masonry" style="columns:3;">
+    <div class="masonry-item"><div class="masonry-placeholder tall"><span>Replace with IMG_6309&#10;Executive Office</span></div><div class="img-caption">Executive Office</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder wide"><span>Replace with IMG_6311&#10;Office Lounge</span></div><div class="img-caption">Office Lounge</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder xtall"><span>Replace with IMG_6312&#10;Modern Workstation</span></div><div class="img-caption">Modern Workstation</div></div>
+  </div>
+</div>
+
+<!-- OPEN SPACES -->
+<div class="gallery-section hidden-panel" id="panel-open">
+  <div class="gallery-header reveal">
+    <p class="section-label">Open Spaces</p>
+    <h2 class="section-title">Exteriors That<br><em>Speak First</em></h2>
+    <p class="gallery-intro">Facades, courtyards, terraces, gardens and entrance spaces designed with the same care as the interior. First impressions are permanent.</p>
+  </div>
+  <div class="masonry" style="columns:2;">
+    <div class="masonry-item"><div class="masonry-placeholder sq"><span>Replace with IMG_6316&#10;Wood Portal Entrance</span></div><div class="img-caption">Entrance Portal</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder tall"><span>Replace with IMG_6335&#10;Glass &amp; Wood Partition</span></div><div class="img-caption">Glass &amp; Wood</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder wide"><span>Replace with IMG_6337&#10;Japanese Courtyard</span></div><div class="img-caption">Courtyard</div></div>
+    <div class="masonry-item"><div class="masonry-placeholder sq"><span>Replace with IMG_6338&#10;Garden Exterior</span></div><div class="img-caption">Garden Exterior</div></div>
+  </div>
+</div>
+
+<!-- CONSULT STRIP -->
+<div class="consult-strip">
+  <div class="reveal">
+    <h2>Ready to Transform<br><em>Your Space?</em></h2>
+  </div>
+  <div class="reveal d1">
+    <p>Book a consultation and we will help you design a space that reflects your taste, your identity and your standard. Residential or commercial, we bring the vision to life.</p>
+    <div class="consult-strip-btns">
+      <a href="https://wa.me/2347063853802?text=Hello%2C%20I%20want%20to%20book%20an%20interior%20design%20consultation%20with%20Asabe." class="btn btn-wa" target="_blank" rel="noopener">&#128222; Book via WhatsApp</a>
+      <a href="https://www.instagram.com/_asabeconglomerate" class="btn btn-white" target="_blank" rel="noopener">View Our Instagram</a>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="reveal">
+    <p class="section-label">How It Works</p>
+    <h2 class="section-title">Our Consultation<br><em>Process</em></h2>
+  </div>
+  <div class="process-grid reveal d1">
+    <div class="process-card">
+      <div class="process-num">01</div>
+      <div class="process-title">Initial Chat</div>
+      <div class="process-desc">Reach out via WhatsApp or Instagram. Tell us about your space, your vision and your timeline.</div>
+    </div>
+    <div class="process-card">
+      <div class="process-num">02</div>
+      <div class="process-title">Consultation</div>
+      <div class="process-desc">We discuss your space in detail, explore reference styles and establish the design direction together.</div>
+    </div>
+    <div class="process-card">
+      <div class="process-num">03</div>
+      <div class="process-title">Design Plan</div>
+      <div class="process-desc">We develop a detailed plan including material selection, colour palette, layout and furniture recommendations.</div>
+    </div>
+    <div class="process-card">
+      <div class="process-num">04</div>
+      <div class="process-title">Execution</div>
+      <div class="process-desc">We manage the process alongside trusted tradespeople and suppliers to bring the design to life.</div>
+    </div>
+  </div>
+</section>
+
+<div class="disclaimer">
+  <p>The images displayed in this gallery are curated global design inspirations and references that represent the Asabe aesthetic direction. They are not the work of Asabe Conglomerate. As we build our portfolio of completed projects, this gallery will be updated with our own work.</p>
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <p>2026 Asabe Conglomerate &mdash; Many Ventures One Standard</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#solar">Solar</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="https://www.instagram.com/_asabeconglomerate" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+var t = document.getElementById("navToggle");
+var l = document.getElementById("navLinks");
+if (t && l) {
+  t.addEventListener("click", function() { t.classList.toggle("open"); l.classList.toggle("open"); document.body.style.overflow = l.classList.contains("open") ? "hidden" : ""; });
+  var items = l.querySelectorAll("a");
+  for (var i = 0; i < items.length; i++) {
+    items[i].addEventListener("click", function() { t.classList.remove("open"); l.classList.remove("open"); document.body.style.overflow = ""; });
+  }
+}
+var els = document.querySelectorAll(".reveal");
+if (window.IntersectionObserver) {
+  var obs = new IntersectionObserver(function(entries) {
+    for (var i = 0; i < entries.length; i++) {
+      if (entries[i].isIntersecting) { entries[i].target.classList.add("visible"); obs.unobserve(entries[i].target); }
+    }
+  }, { threshold: 0.1 });
+  for (var j = 0; j < els.length; j++) { obs.observe(els[j]); }
+} else {
+  for (var k = 0; k < els.length; k++) { els[k].classList.add("visible"); }
+}
+function filterGallery(e, id) {
+  var btns = document.querySelectorAll(".filter-btn");
+  for (var i = 0; i < btns.length; i++) { btns[i].classList.remove("active"); }
+  e.target.classList.add("active");
+  var panels = ["all","living","work","open"];
+  for (var j = 0; j < panels.length; j++) {
+    var p = document.getElementById("panel-" + panels[j]);
+    if (p) { p.classList.toggle("hidden-panel", panels[j] !== id); p.classList.toggle("active", panels[j] === id); }
+    if (panels[j] === "all" && id === "all") { p.classList.remove("hidden-panel"); }
+  }
+}
+var hash = window.location.hash;
+if (hash === "#workspaces") { var wb = document.getElementById("workBtn"); if(wb) wb.click(); }
+if (hash === "#openspaces") { var ob = document.getElementById("openBtn"); if(ob) ob.click(); }
+</script>
+</body>
+</html>
